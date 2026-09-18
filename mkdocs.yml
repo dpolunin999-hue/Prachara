@@ -1,0 +1,93 @@
+site_name: Система Прачары
+site_description: Практическая база знаний для Центра, секретарей и команд юнитов
+site_author: Департамент Прачары
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: ru
+  font: false
+  palette:
+    scheme: default
+    primary: custom
+    accent: custom
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search:
+      lang: ru
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Главная: index.md
+  - Начать работу:
+      - Обзор: start/index.md
+      - Секретарь Прачары: start/secretary.md
+      - Заботник: start/caretaker.md
+      - Контент: start/content.md
+      - Программы: start/programs.md
+      - Первые шаги: start/beginner.md
+      - Найти материал: start/materials.md
+  - Архитектура:
+      - Организационная структура: 01_Архитектура/Организационная_структура.md
+      - Три блока Прачары: 01_Архитектура/Три_блока_Прачары.md
+      - Путь человека: 01_Архитектура/Путь_человека.md
+  - Центр Прачары:
+      - Направления Центра: 02_Центр_Прачары/Направления_центра.md
+      - Цикл развития системы: 02_Центр_Прачары/Цикл_развития_системы.md
+  - Юнит:
+      - Карта задач: 03_Юнит/Карта_задач_юнита.md
+      - Управление: 03_Юнит/Управление_юнитом.md
+      - Инфраструктура: 03_Юнит/Инфраструктура_юнита.md
+      - Формирование команды: 03_Юнит/Формирование_команды.md
+  - Роли:
+      - Секретарь: 04_Роли/Секретарь_Прачары.md
+      - Заботник: 04_Роли/Заботник.md
+      - Контент-мейкер: 04_Роли/Контент_мейкер.md
+  - Привлечение: 05_Привлечение/Система_привлечения.md
+  - Первый опыт: 06_Первый_опыт/Система_первого_опыта.md
+  - Забота:
+      - Система заботы: 07_Забота/Система_заботы.md
+      - Чек-лист новичка: 07_Забота/Чеклист_новичка.md
+  - Программы: 08_Программы/Каталог_программ.md
+  - Обучение прачарщиков: 09_Обучение_прачарщиков/Система_обучения.md
+  - Метрики: 10_Метрики/Система_показателей.md
+  - База знаний:
+      - Обзор системы: 11_База_знаний/Обзор_системы.md
+      - Структура базы: 11_База_знаний/Структура_базы_знаний.md
+      - Источники: 12_Источники/README.md
+      - Бэклог: 13_Разработка_системы/Бэклог.md
+      - Шаблон решения: 13_Разработка_системы/Шаблон_решения.md
+      - Оформление материалов: 13_Разработка_системы/Оформление_материалов.md
