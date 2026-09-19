@@ -1,0 +1,61 @@
+name: Сборка и публикация сайта
+
+# Сайт пересобирается автоматически при каждом изменении Markdown в папке docs/.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Одновременно идёт только одна публикация; уже начатую не обрываем.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Забрать исходники
+        uses: actions/checkout@v4
+
+      - name: Установить Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Установить зависимости
+        run: pip install -r requirements.txt
+
+      # Проверка ссылок и оформления. Показывает предупреждения в журнале,
+      # но НЕ блокирует публикацию — сайт обновится в любом случае.
+      - name: Проверить материалы (не блокирует публикацию)
+        run: mkdocs build --strict
+        continue-on-error: true
+
+      - name: Собрать сайт из Markdown
+        run: mkdocs build
+
+      - name: Подготовить GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Загрузить собранный сайт
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Опубликовать на GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

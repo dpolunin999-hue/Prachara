@@ -1,6 +1,7 @@
 site_name: Система Прачары
 site_description: Практическая база знаний для Центра, секретарей и команд юнитов
 site_author: Департамент Прачары
+site_url: https://dpolunin999-hue.github.io/Prachara/
 docs_dir: docs
 site_dir: site
 use_directory_urls: true
