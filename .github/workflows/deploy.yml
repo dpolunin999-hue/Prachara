@@ -41,7 +41,10 @@ jobs:
       - name: Собрать сайт из Markdown
         run: mkdocs build
 
-      - name: Добавить приложение Ananda Prachar\n        run: cp -R app site/app\n\n      - name: Подготовить GitHub Pages
+      - name: Добавить приложение Ananda Prachar
+        run: cp -R app site/app
+
+      - name: Подготовить GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Загрузить собранный сайт
