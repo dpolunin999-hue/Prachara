@@ -107,7 +107,8 @@ drop policy if exists cities_admin_delete on public.cities;
 create policy cities_admin_delete on public.cities for delete to authenticated using(public.is_national_admin());
 
 drop policy if exists profiles_read on public.profiles;
-create policy profiles_read on public.profiles for select to authenticated\n using(id=auth.uid() or public.is_national_admin());
+create policy profiles_read on public.profiles for select to authenticated
+using(id=auth.uid() or public.is_national_admin());
 drop policy if exists profiles_self_update on public.profiles;
 create policy profiles_self_update on public.profiles for update to authenticated
  using(id=auth.uid()) with check(id=auth.uid() and role in('city_member','city_admin'));
