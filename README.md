@@ -21,3 +21,4 @@ mkdocs serve
 ```
 
 Строгая проверка: `mkdocs build --strict`. Подробные шаги для GitHub и Cloudflare Pages — в [DEPLOY.md](DEPLOY.md). Правила редактирования базы — в [AGENTS.md](AGENTS.md).
+\n\n## Приложение Ananda Prachar\n\nPWA находится в `app/` и публикуется вместе с MkDocs по адресу `https://dpolunin999-hue.github.io/Prachara/app/`. Данные и авторизация работают через Supabase. Схема базы находится в `app/supabase-schema.sql`.\n
