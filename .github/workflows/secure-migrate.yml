@@ -1,66 +1,88 @@
 name: Secure one-time data migration
 
 on:
-  push:
-    paths:
-      - .github/workflows/secure-migrate.yml
   issues:
     types: [opened]
 
 permissions:
   contents: read
-  actions: read
+  issues: write
 
 jobs:
-  generate-key:
-    if: github.event_name == 'push'
+  migrate:
+    if: >-
+      github.event.issue.user.login == 'dpolunin999-hue' &&
+      github.event.issue.title == '[secure-migration] mubm88hycb1ql4fuu1wvbg1vpo392'
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Generate short-lived encryption key
+      - name: Check out migration runner
+        uses: actions/checkout@v4
+      - name: Generate in-memory encryption key
         shell: bash
         run: |
           mkdir -p .migration-key
           openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4096 -out .migration-key/private.pem
           openssl pkey -in .migration-key/private.pem -pubout -out .migration-key/public.pem
-      - name: Save key for the one-time migration
-        uses: actions/upload-artifact@v4
-        with:
-          name: migration-keypair
-          path: .migration-key
-          retention-days: 1
-          if-no-files-found: error
-      - name: Publish safe public key
-        shell: bash
-        run: |
-          echo "MIGRATION_PUBLIC_KEY_BEGIN"
-          cat .migration-key/public.pem
-          echo "MIGRATION_PUBLIC_KEY_END"
-
-  migrate:
-    if: >-
-      github.event_name == 'issues' &&
-      github.event.issue.user.login == 'dpolunin999-hue' &&
-      github.event.issue.title == '[secure-migration] mubm88hycb1ql4fuu1wvbg1vpo392'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Read encrypted envelope metadata
-        id: envelope
+      - name: Publish safe public key to the protected issue
         shell: bash
         env:
-          MIGRATION_ENVELOPE: ${{ github.event.issue.body }}
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
         run: |
-          RUN_ID="$(node -e 'const x=JSON.parse(process.env.MIGRATION_ENVELOPE); if(!x.runId) process.exit(2); process.stdout.write(String(x.runId))')"
-          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
-      - name: Download short-lived private key
-        uses: actions/download-artifact@v4
-        with:
-          name: migration-keypair
-          path: .migration-key
-          run-id: ${{ steps.envelope.outputs.run_id }}
-          github-token: ${{ github.token }}
-      - name: Check out migration runner
-        uses: actions/checkout@v4
-      - name: Run encrypted migration
+          BODY="$(printf 'MIGRATION_PUBLIC_KEY\n%s' "$(cat .migration-key/public.pem)")"
+          jq -n --arg body "$BODY" '{body:$body}' > "$RUNNER_TEMP/public-key-comment.json"
+          curl --fail --silent --show-error \
+            -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/issues/$ISSUE_NUMBER/comments" \
+            --data-binary "@$RUNNER_TEMP/public-key-comment.json" > /dev/null
+      - name: Wait for owner-encrypted migration envelope
+        shell: bash
         env:
-          MIGRATION_ENVELOPE: ${{ github.event.issue.body }}
-        run: node .github/scripts/secure-migrate.mjs
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          OWNER_LOGIN: dpolunin999-hue
+        run: |
+          for attempt in $(seq 1 90); do
+            curl --fail --silent --show-error \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "Accept: application/vnd.github+json" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$REPOSITORY/issues/$ISSUE_NUMBER/comments?per_page=100" \
+              > "$RUNNER_TEMP/comments.json"
+            BODY="$(jq -r --arg owner "$OWNER_LOGIN" \
+              '[.[] | select(.user.login == $owner and (.body | startswith("MIGRATION_ENVELOPE\\n")))] | last | .body // "" | sub("^MIGRATION_ENVELOPE\\n"; "")' \
+              "$RUNNER_TEMP/comments.json")"
+            if [ -n "$BODY" ]; then
+              printf '%s' "$BODY" > "$RUNNER_TEMP/envelope.json"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Timed out waiting for encrypted migration data" >&2
+          exit 1
+      - name: Run migration
+        shell: bash
+        run: |
+          MIGRATION_ENVELOPE="$(cat "$RUNNER_TEMP/envelope.json")" \
+            node .github/scripts/secure-migrate.mjs
+      - name: Confirm completion
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          jq -n --arg body "MIGRATION_COMPLETED" '{body:$body}' > "$RUNNER_TEMP/completed-comment.json"
+          curl --fail --silent --show-error \
+            -X POST \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPOSITORY/issues/$ISSUE_NUMBER/comments" \
+            --data-binary "@$RUNNER_TEMP/completed-comment.json" > /dev/null
