@@ -12,7 +12,7 @@ jobs:
   migrate:
     if: >-
       github.event.issue.user.login == 'dpolunin999-hue' &&
-      github.event.issue.title == '[secure-migration] mubm88hycb1ql4fuu1wvbg1vpo392'
+      github.event.issue.title == '[secure-migration] mubmghwylh0m3w8nbz6q1rjr6ldha'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
