@@ -2,41 +2,24 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 
 const envelope = JSON.parse(process.env.MIGRATION_ENVELOPE || "{}");
-if (!envelope.encryptedKey || !envelope.iv || !envelope.ciphertext) {
+if (!Array.isArray(envelope.chunks) || envelope.chunks.length === 0) {
   throw new Error("Encrypted migration payload is missing");
 }
 
-const subtle = crypto.webcrypto.subtle;
 const pem = fs.readFileSync(".migration-key/private.pem", "utf8");
-const der = Buffer.from(
-  pem.replace(/-----BEGIN PRIVATE KEY-----|-----END PRIVATE KEY-----|\s/g, ""),
-  "base64"
+const clear = Buffer.concat(
+  envelope.chunks.map(chunk =>
+    crypto.privateDecrypt(
+      {
+        key: pem,
+        padding: crypto.constants.RSA_PKCS1_OAEP_PADDING,
+        oaepHash: "sha256"
+      },
+      Buffer.from(chunk, "base64")
+    )
+  )
 );
-const privateKey = await subtle.importKey(
-  "pkcs8",
-  der,
-  { name: "RSA-OAEP", hash: "SHA-256" },
-  false,
-  ["decrypt"]
-);
-const rawAesKey = await subtle.decrypt(
-  { name: "RSA-OAEP" },
-  privateKey,
-  Buffer.from(envelope.encryptedKey, "base64")
-);
-const aesKey = await subtle.importKey(
-  "raw",
-  rawAesKey,
-  { name: "AES-GCM" },
-  false,
-  ["decrypt"]
-);
-const clear = await subtle.decrypt(
-  { name: "AES-GCM", iv: Buffer.from(envelope.iv, "base64") },
-  aesKey,
-  Buffer.from(envelope.ciphertext, "base64")
-);
-const payload = JSON.parse(Buffer.from(clear).toString("utf8"));
+const payload = JSON.parse(clear.toString("utf8"));
 
 const base = payload.supabaseUrl.replace(/\/$/, "");
 const anonKey = payload.anonKey;
