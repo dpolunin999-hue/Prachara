@@ -12,7 +12,7 @@ jobs:
   migrate:
     if: >-
       github.event.issue.user.login == 'dpolunin999-hue' &&
-      github.event.issue.title == '[secure-migration] mubmghwylh0m3w8nbz6q1rjr6ldha'
+      github.event.issue.title == '[secure-migration] mubmpdcgzwwwtxjzdpu6z11es5dpg'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -56,7 +56,7 @@ jobs:
               "https://api.github.com/repos/$REPOSITORY/issues/$ISSUE_NUMBER/comments?per_page=100" \
               > "$RUNNER_TEMP/comments.json"
             BODY="$(jq -r --arg owner "$OWNER_LOGIN" \
-              '[.[] | select(.user.login == $owner and (.body | startswith("MIGRATION_ENVELOPE\\n")))] | last | .body // "" | sub("^MIGRATION_ENVELOPE\\n"; "")' \
+              '[.[] | select(.user.login == $owner and (.body | startswith("MIGRATION_ENVELOPE\n")))] | last | .body // "" | sub("^MIGRATION_ENVELOPE\n"; "")' \
               "$RUNNER_TEMP/comments.json")"
             if [ -n "$BODY" ]; then
               printf '%s' "$BODY" > "$RUNNER_TEMP/envelope.json"
