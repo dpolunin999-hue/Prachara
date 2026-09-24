@@ -44,6 +44,12 @@ jobs:
       - name: Собрать сайт из Markdown
         run: mkdocs build
 
+      - name: Подготовить локальную библиотеку Supabase
+        run: |
+          npm install --no-save --ignore-scripts @supabase/supabase-js@2
+          mkdir -p app/vendor
+          cp node_modules/@supabase/supabase-js/dist/umd/supabase.js app/vendor/supabase.js
+
       - name: Добавить приложение Ananda Prachar
         run: cp -R app site/app
 
