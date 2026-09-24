@@ -32,6 +32,9 @@ jobs:
       - name: Установить зависимости
         run: pip install -r requirements.txt
 
+      - name: Проверить JavaScript приложения
+        run: node --check app/app.js && node --check app/supabase-adapter.js && node --check app/sw.js
+
       # Проверка ссылок и оформления. Показывает предупреждения в журнале,
       # но НЕ блокирует публикацию — сайт обновится в любом случае.
       - name: Проверить материалы (не блокирует публикацию)
