@@ -1,12 +1,12 @@
-# Система Прачары
+# Ананда Прачар
 
 <div class="prachar-hero" markdown>
 
 <span class="eyebrow">Практическая система для команды юнита</span>
 
-## За какое направление вы сейчас отвечаете?
+## Выберите направление и переходите к действию
 
-Выберите область работы. Это не должности и не ограничения доступа — один человек может вести несколько направлений.
+Здесь собраны рабочие маршруты, инструкции и шаблоны. Один человек может вести несколько направлений — выбирайте то, что нужно сейчас.
 
 </div>
 
@@ -15,28 +15,28 @@
 <a class="direction-card direction-card--ads" href="start/content/">
 <span class="direction-card__number">01</span>
 <strong>Реклама</strong>
-<span>Привлечение новых людей и создание первого интереса.</span>
+<span>Помочь новым людям узнать о практике и сделать первый шаг.</span>
 <em>Открыть направление →</em>
 </a>
 
 <a class="direction-card direction-card--programs" href="start/programs/">
 <span class="direction-card__number">02</span>
 <strong>Программы</strong>
-<span>Сильный первый опыт человека на встречах и программах.</span>
+<span>Подготовить встречу и создать сильный первый опыт.</span>
 <em>Открыть направление →</em>
 </a>
 
 <a class="direction-card direction-card--care" href="start/caretaker/">
 <span class="direction-card__number">03</span>
 <strong>Забота</strong>
-<span>Путь от первого контакта к регулярной практике и дальнейшим шагам.</span>
+<span>Сопровождать человека от первого контакта к регулярной практике.</span>
 <em>Открыть направление →</em>
 </a>
 
 <a class="direction-card direction-card--secretary" href="start/secretary/">
 <span class="direction-card__number">04</span>
 <strong>Секретарь Прачары</strong>
-<span>Команда, направления, показатели и развитие всей системы юнита.</span>
+<span>Соединять команду, направления, показатели и развитие юнита.</span>
 <em>Открыть направление →</em>
 </a>
 

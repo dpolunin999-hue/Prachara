@@ -1,6 +1,6 @@
 # Реклама
 
-<div class="page-breadcrumbs"><a href="../../">Главная</a><span>›</span><strong>Реклама</strong></div>
+<div class="page-breadcrumbs"><a href="../../">Ананда Прачар</a><span>›</span><strong>Реклама</strong></div>
 
 <div class="direction-intro direction-intro--ads" markdown>
 
@@ -8,33 +8,54 @@
 
 ## Идея
 
-Создавать условия, при которых новые люди узнают о практике, заинтересовываются и совершают следующий шаг: пишут, регистрируются или приходят на программу.
+Создавать условия, при которых новые люди узнают о практике, понимают предложение и делают следующий шаг: пишут, регистрируются или приходят.
 
 ## Конечный результат
 
-**Человек увидел → понял предложение → заинтересовался → связался или пришёл.**
+**Человек увидел → понял → заинтересовался → связался или пришёл.**
 
 </div>
 
-## Основные области работы
+## Карта направления
 
-<div class="grid cards action-cards" markdown>
+<div class="action-section action-section--foundation" markdown>
 
--   **Упаковка**
+<div class="action-section__head" markdown>
+<span class="action-section__index">01</span>
+### Основа
+<p>Сначала сделайте понятными сообщество и само предложение.</p>
+</div>
+
+<div class="grid cards action-cards action-cards--two" markdown>
+
+-   **Упаковка** <span class="card-tag">база</span>
 
     Сообщество, профиль, описание, закреплённые публикации, ссылки и понятное позиционирование.
 
     [Открыть базовый минимум](../05_Привлечение/Система_привлечения.md#basic-minimum)
 
--   **Контент**
+-   **Контент** <span class="card-tag">регулярно</span>
 
     Посты, видео, истории, статьи, анонсы, отзывы и материалы после мероприятий.
 
     [Перейти к анонсу](#event-announcement)
 
+</div>
+</div>
+
+<div class="action-section action-section--channels" markdown>
+
+<div class="action-section__head" markdown>
+<span class="action-section__index">02</span>
+### Каналы
+<p>Используйте те площадки, которые команда сможет поддерживать.</p>
+</div>
+
+<div class="grid cards action-cards" markdown>
+
 -   **Социальные сети**
 
-    VK, Telegram, YouTube и другие площадки. Выбирайте каналы, которые команда может поддерживать.
+    VK, Telegram, YouTube и другие подходящие площадки.
 
 -   **Объявления**
 
@@ -42,21 +63,47 @@
 
     [Готовый шаблон Avito](../05_Привлечение/Система_привлечения.md#avito-ad)
 
--   **Платная реклама**
+-   **Офлайн**
 
-    Кампании, креативы, аудитории, тесты связок и аналитика. **Черновик для наполнения.**
+    Афиши, листовки, личные приглашения и локальные активности.
+
+-   **Рекомендации**
+
+    Приглашения друзей и рекомендации участников после мероприятий.
+
+</div>
+</div>
+
+<div class="action-section action-section--growth" markdown>
+
+<div class="action-section__head" markdown>
+<span class="action-section__index">03</span>
+### Рост
+<p>Подключайте после того, как основа уже работает.</p>
+</div>
+
+<div class="grid cards action-cards action-cards--two" markdown>
+
+-   **Платная реклама** <span class="card-tag">черновик</span>
+
+    Кампании, креативы, аудитории, тесты связок и аналитика.
 
 -   **Партнёрства**
 
     Йога-студии, пространства, преподаватели, блогеры и совместные проекты.
 
--   **Офлайн-привлечение**
+</div>
+</div>
 
-    Афиши, листовки, знакомства, приглашения и локальные активности.
+<div class="action-section action-section--control" markdown>
 
--   **Рекомендации**
+<div class="action-section__head" markdown>
+<span class="action-section__index">04</span>
+### Контроль результата
+<p>Смотрите, откуда приходят люди и какой канал помогает им сделать следующий шаг.</p>
+</div>
 
-    Приглашения друзей и рекомендации участников после мероприятий.
+<div class="grid cards action-cards action-cards--one" markdown>
 
 -   **Аналитика**
 
@@ -65,7 +112,7 @@
     [Открыть показатели](../10_Метрики/Система_показателей.md)
 
 </div>
-
+</div>
 ## Анонс мероприятия { #event-announcement }
 
 <div class="material-route">Реклама <span>→</span> Контент <span>→</span> Анонс мероприятия <span>→</span> Афиша</div>
