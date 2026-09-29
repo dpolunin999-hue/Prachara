@@ -221,6 +221,10 @@ def configure_document(doc: Document) -> None:
     title.font.color.rgb = RGBColor(0, 0, 0)
     title.paragraph_format.space_after = Pt(12)
     title.paragraph_format.alignment = WD_ALIGN_PARAGRAPH.LEFT
+    title_ppr = title.element.get_or_add_pPr()
+    title_border = title_ppr.find(qn("w:pBdr"))
+    if title_border is not None:
+        title_ppr.remove(title_border)
 
     for level, size in {1: 21, 2: 15.5, 3: 12.5, 4: 11}.items():
         style = doc.styles[f"Heading {level}"]
@@ -258,10 +262,13 @@ def configure_document(doc: Document) -> None:
     separate.set(qn("w:fldCharType"), "separate")
     end = OxmlElement("w:fldChar")
     end.set(qn("w:fldCharType"), "end")
-    paragraph._p.append(begin)
-    paragraph._p.append(instruction)
-    paragraph._p.append(separate)
-    paragraph._p.append(end)
+    field_run = paragraph.add_run()
+    field_run._r.append(begin)
+    field_run._r.append(instruction)
+    field_run._r.append(separate)
+    field_run.add_text("1")
+    end_run = paragraph.add_run()
+    end_run._r.append(end)
 
 
 def add_cover(doc: Document) -> None:
