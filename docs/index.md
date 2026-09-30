@@ -64,7 +64,7 @@
 
 <div class="quick-actions" markdown>
 
-- [Ответить человеку, который написал](start/caretaker.md#person-wrote)
+- [Ответить человеку, который написал](start/caretaker.md#care-step-1)
 - [Подготовить афишу мероприятия](start/content.md#poster)
 - [Выбрать формат программы](start/programs.md#program-types)
 - [Провести созвон команды](start/secretary.md#team-call)
