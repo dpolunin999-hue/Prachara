@@ -1,0 +1,39 @@
+
+{% set groups = {'start/content.md':'ads','start/programs.md':'programs','start/caretaker.md':'care','start/secretary.md':'secretary'} %}
+{% set group = groups.get(page.file.src_uri, 'home') %}
+<section class="task-finder" data-task-group="{{ group }}" aria-labelledby="task-finder-title">
+  <div class="task-finder__heading">
+    <div>
+      <span class="eyebrow">Сразу к нужному действию</span>
+      <h2 id="task-finder-title">Что нужно сделать?</h2>
+      <p>Выберите задачу — откроется нужный шаг с инструкцией.</p>
+    </div>
+    <a class="task-finder__library" href="{{ 'start/beginner/' | url }}">{% if group == 'home' %}Я здесь впервые →{% else %}Первые шаги →{% endif %}</a>
+  </div>
+  <div class="finder-search js-only">
+    <label for="task-query">{% if group == 'home' %}Найти действие{% else %}Найти действие в этом направлении{% endif %}</label>
+    <div class="finder-search__field">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-5-5m2-6a8 8 0 1 1-16 0 8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input id="task-query" type="search" autocomplete="off" placeholder="{% if group == 'home' %}Например: Avito, первая встреча, чат{% else %}Введите задачу или инструмент{% endif %}" aria-controls="task-results">
+    </div>
+  </div>
+  <ul id="task-results" class="task-results">
+  {% for task in config.extra.task_routes %}
+  <li data-task-category="{{ task.group }}" data-task-keywords="{{ task.keywords }}" data-featured="{{ 'true' if task.featured else 'false' }}" {% if (group != 'home' and task.group != group) or (group == 'home' and not task.featured) %}hidden{% endif %}>
+    <a href="{{ task.target | url }}">
+      <span class="task-results__body"><strong>{{ task.title }}</strong><span>{{ task.description }}</span></span>
+      <span class="task-results__arrow" aria-hidden="true">↗</span>
+    </a>
+  </li>
+  {% endfor %}
+  </ul>
+  <div class="task-finder__empty js-only" hidden>
+    <p>Такое действие пока не найдено. Попробуйте другое слово или поиск по всей базе.</p>
+    <button type="button" class="finder-full-search">Искать по всей базе</button>
+  </div>
+  <div class="task-finder__footer">
+    <span class="finder-count js-only" role="status" aria-live="polite"></span>
+    <button type="button" class="finder-show-all js-only" aria-expanded="false" aria-controls="task-results">Показать все действия</button>
+    <button type="button" class="finder-collapse js-only">Свернуть инструкции</button>
+  </div>
+</section>

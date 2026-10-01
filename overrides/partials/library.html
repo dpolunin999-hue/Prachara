@@ -1,0 +1,33 @@
+
+{% macro entries(items) %}
+<ul class="library-links">
+{% for item in items %}
+{% if item.is_page %}
+<li><a href="{{ item.url | url }}">{{ item.title }}</a></li>
+{% elif item.children %}
+<li><strong>{{ item.title }}</strong>{{ entries(item.children) }}</li>
+{% endif %}
+{% endfor %}
+</ul>
+{% endmacro %}
+<section class="library-directory" aria-labelledby="library-title">
+  <h2 id="library-title">Все материалы по разделам</h2>
+  <div class="finder-search js-only">
+    <label for="library-query">Поиск по названиям материалов</label>
+    <input id="library-query" type="search" autocomplete="off" placeholder="Например: роль, новичок, метрики" aria-controls="library-groups">
+    <p class="library-count" role="status" aria-live="polite"></p>
+  </div>
+  <div id="library-groups" class="library-groups">
+  {% for section in nav %}
+  {% if section.is_section %}
+    <details class="library-group">
+      <summary>{{ section.title }}<small>{{ section.children | length }} материалов</small></summary>
+      {{ entries(section.children) }}
+    </details>
+  {% elif section.is_page and not section.is_homepage %}
+    <div class="library-group library-group--single">{{ entries([section]) }}</div>
+  {% endif %}
+  {% endfor %}
+  </div>
+  <p class="library-empty" hidden>Материал с таким названием не найден. <button type="button" class="finder-full-search">Искать по содержимому</button></p>
+</section>

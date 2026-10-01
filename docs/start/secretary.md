@@ -16,13 +16,13 @@
 
 </div>
 
-## Карта системы
+## Карта системы { #system-map }
 
 <div class="prachar-flow compact-flow">
 <div><b>Реклама</b><span>новые обращения</span></div><i>→</i><div><b>Программы</b><span>первый опыт</span></div><i>→</i><div><b>Забота</b><span>продолжение пути</span></div>
 </div>
 
-## Основные области работы
+## Основные области работы { #work-areas }
 
 <div class="grid cards action-cards" markdown>
 

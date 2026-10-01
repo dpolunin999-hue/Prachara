@@ -8,6 +8,7 @@ use_directory_urls: true
 
 theme:
   name: material
+  custom_dir: overrides
   language: ru
   font: false
   palette:
@@ -17,7 +18,6 @@ theme:
   features:
     - navigation.sections
     - navigation.indexes
-    - navigation.path
     - navigation.top
     - toc.follow
     - search.suggest
@@ -26,7 +26,9 @@ theme:
 
 plugins:
   - search:
-      lang: ru
+      lang:
+        - ru
+        - en
 
 markdown_extensions:
   - admonition
@@ -36,6 +38,7 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+      toc_depth: 2
   - pymdownx.details
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -50,6 +53,192 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/navigation.js
+
+extra:
+  task_routes:
+    - group: ads
+      title: "Создать объявление на Avito"
+      description: "Инструкция, промпт и переход к публикации"
+      target: "start/content/#avito-tool"
+      keywords: "авито объявление реклама привлечь публикация"
+      featured: true
+    - group: ads
+      title: "Оформить личный бренд"
+      description: "Доверие к ведущему и понятный образ"
+      target: "start/content/#personal-brand"
+      keywords: "ведущий личный бренд доверие"
+      featured: false
+    - group: ads
+      title: "Упаковать социальные сети"
+      description: "Страница сообщества и закреплённая публикация"
+      target: "start/content/#social-packaging"
+      keywords: "соцсети вк вконтакте группа упаковка профиль"
+      featured: false
+    - group: ads
+      title: "Сделать сайт заметнее"
+      description: "SEO, гео и информация о городе"
+      target: "start/content/#site-visibility"
+      keywords: "сайт seo гео geo поиск город"
+      featured: false
+    - group: ads
+      title: "Подготовить и раздать визитки"
+      description: "Текст, порядок выдачи и учёт"
+      target: "start/content/#business-cards"
+      keywords: "визитка офлайн раздать промпт"
+      featured: false
+    - group: ads
+      title: "Сделать анонс или афишу"
+      description: "Шаблоны для ближайшей программы"
+      target: "start/content/#event-announcement"
+      keywords: "афиша анонс картинка пост приглашение"
+      featured: true
+    - group: programs
+      title: "Выбрать формат встречи"
+      description: "Виды программ и каталог"
+      target: "start/programs/#program-types"
+      keywords: "формат йога медитация ретрит сатсанг программа"
+      featured: true
+    - group: programs
+      title: "Подготовить программу"
+      description: "Пять шагов от цели до завершения"
+      target: "start/programs/#program-preparation"
+      keywords: "организация сценарий подготовка провести встречу"
+      featured: false
+    - group: programs
+      title: "Позаботиться об участниках"
+      description: "До начала, во время и после встречи"
+      target: "start/programs/#care-during-program"
+      keywords: "новичок встреча забота гостеприимство"
+      featured: false
+    - group: programs
+      title: "Начать лёгкий разговор"
+      description: "Вопросы для общения до и после встречи"
+      target: "start/programs/#small-talk"
+      keywords: "общение small talk разговор знакомство вопросы"
+      featured: false
+    - group: programs
+      title: "Выбрать интерактив"
+      description: "Семь идей для участия и общения"
+      target: "start/programs/#interactives"
+      keywords: "интерактив игры упражнение участник пара группа"
+      featured: false
+    - group: programs
+      title: "Дополнить стандарт программ"
+      description: "Вопросы для наполнения раздела"
+      target: "start/programs/#program-questionnaire"
+      keywords: "анкета опрос вопросы стандарты содержание"
+      featured: false
+    - group: care
+      title: "Ответить человеку впервые"
+      description: "Порядок первого контакта и готовые сообщения"
+      target: "start/caretaker/#care-step-1"
+      keywords: "новичок первый ответ сообщение написал контакт"
+      featured: true
+    - group: care
+      title: "Подготовить человека к встрече"
+      description: "Запись, дорога, формат и напоминание"
+      target: "start/caretaker/#care-step-2"
+      keywords: "приглашение записать напомнить запись адрес"
+      featured: false
+    - group: care
+      title: "Встретить новичка"
+      description: "Помочь освоиться и узнать впечатления"
+      target: "start/caretaker/#care-step-3"
+      keywords: "первый пришел новичок встретить"
+      featured: false
+    - group: care
+      title: "Написать после встречи"
+      description: "Впечатления, польза и следующий шаг"
+      target: "start/caretaker/#care-step-4"
+      keywords: "сообщение после встречи обратная связь впечатления"
+      featured: false
+    - group: care
+      title: "Поддержать повторный приход"
+      description: "Контакт и самостоятельная практика"
+      target: "start/caretaker/#care-step-5"
+      keywords: "продолжает повторный приход обучение"
+      featured: false
+    - group: care
+      title: "Связаться с тем, кто пропал"
+      description: "Ненавязчивые сообщения без давления"
+      target: "start/caretaker/#care-step-6"
+      keywords: "не пришел пропал исчез не отвечает занят"
+      featured: false
+    - group: care
+      title: "Поддержать регулярную практику"
+      description: "Ретриты, сообщество и служение"
+      target: "start/caretaker/#care-step-7"
+      keywords: "регулярный практика ретрит служение"
+      featured: false
+    - group: care
+      title: "Передать на индивидуальное обучение"
+      description: "Объяснить шаг и организовать передачу"
+      target: "start/caretaker/#care-step-8"
+      keywords: "личный урок инициация преподаватель обучение"
+      featured: false
+    - group: care
+      title: "Записать этап в приложении"
+      description: "Запрос, ответственный и следующий контакт"
+      target: "start/caretaker/#care-step-9"
+      keywords: "приложение учет crm карточка садху статус этап"
+      featured: false
+    - group: care
+      title: "Создать и поддерживать чат"
+      description: "Правила, опросы и полезные материалы"
+      target: "start/caretaker/#care-step-10"
+      keywords: "чат сообщество соцсеть телеграм опросы группа"
+      featured: false
+    - group: care
+      title: "Проверить заботу за неделю"
+      description: "Кому нужен ответ или следующий шаг"
+      target: "start/caretaker/#care-step-11"
+      keywords: "еженедельный проверка список контакты"
+      featured: false
+    - group: care
+      title: "Передать запрос или попросить отзыв"
+      description: "Сообщения и согласие на публикацию"
+      target: "start/caretaker/#care-step-12"
+      keywords: "передача отзыв помощь запрос"
+      featured: false
+    - group: care
+      title: "Проверить границы общения"
+      description: "Забота без перегрузки и давления"
+      target: "start/caretaker/#care-step-13"
+      keywords: "границы спам давление отказ"
+      featured: false
+    - group: care
+      title: "Проверить сообщение"
+      description: "Личный контекст, польза и свобода выбора"
+      target: "start/caretaker/#care-step-14"
+      keywords: "формула сообщение проверить шаблон"
+      featured: false
+    - group: secretary
+      title: "Провести созвон команды"
+      description: "Структура разговора на 30–45 минут"
+      target: "start/secretary/#team-call"
+      keywords: "команда созвон план неделя собрание"
+      featured: true
+    - group: secretary
+      title: "Определить ближайшие действия"
+      description: "Целевые действия и результат"
+      target: "start/secretary/#target-actions"
+      keywords: "задачи цели действия план результат"
+      featured: false
+    - group: secretary
+      title: "Разобраться в карте системы"
+      description: "Направления и связь между ними"
+      target: "start/secretary/#system-map"
+      keywords: "система архитектура секретарь карта"
+      featured: false
+    - group: secretary
+      title: "Распределить работу команды"
+      description: "Основные области ответственности"
+      target: "start/secretary/#work-areas"
+      keywords: "роли команда распределить ответственность"
+      featured: false
 
 nav:
   - Главная: index.md

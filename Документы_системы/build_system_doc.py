@@ -364,7 +364,9 @@ def is_separator(row):
 
 
 def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
-    lines = path.read_text(encoding="utf-8-sig").splitlines()
+    content = path.read_text(encoding="utf-8-sig")
+    content = re.sub(r"\A---\s*\n.*?\n---\s*\n", "", content, count=1, flags=re.S)
+    lines = content.splitlines()
     index = 0
     skipped_h1 = False
     in_code = False

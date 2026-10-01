@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+{% block tabs %}
+<nav class="site-nav" aria-label="Основные разделы">
+  <div class="site-nav__inner md-grid">
+    {% set links = [
+      ('', 'Главная', 'index.md'),
+      ('start/content/', 'Реклама', 'start/content.md'),
+      ('start/programs/', 'Программы', 'start/programs.md'),
+      ('start/caretaker/', 'Забота', 'start/caretaker.md'),
+      ('start/secretary/', 'Секретарь', 'start/secretary.md'),
+      ('start/materials/', 'База знаний', 'start/materials.md')
+    ] %}
+    {% for href, label, source in links %}
+    <a href="{{ href | url }}" {% if page and page.file.src_uri == source %}aria-current="page"{% endif %}>{{ label }}</a>
+    {% endfor %}
+  </div>
+</nav>
+{% endblock %}
+{% block content %}
+{% if page and not page.is_homepage and 'page-breadcrumbs' not in page.content %}
+<nav class="page-breadcrumbs" aria-label="Вы здесь">
+  <a href="{{ '' | url }}">Главная</a><span aria-hidden="true">/</span>
+  {% if page.file.src_uri != 'start/materials.md' %}
+  <a href="{{ 'start/materials/' | url }}">База знаний</a><span aria-hidden="true">/</span>
+  {% endif %}
+  <span aria-current="page">{{ page.title }}</span>
+</nav>
+{% endif %}
+{% if page and not page.is_homepage and not page.file.src_uri.startswith('start/') %}
+{% set outline = page.toc | first %}
+{% if outline and outline.children %}
+<details class="page-outline">
+  <summary>В этой инструкции</summary>
+  <ul>{% for item in outline.children %}<li><a href="{{ item.url | url }}">{{ item.title }}</a></li>{% endfor %}</ul>
+</details>
+{% endif %}
+{% endif %}
+{{ super() }}
+{% if page and (page.is_homepage or page.file.src_uri in ['start/content.md','start/programs.md','start/caretaker.md','start/secretary.md']) %}
+{% include "partials/task-finder.html" %}
+{% endif %}
+{% if page and page.file.src_uri == 'start/materials.md' %}
+{% include "partials/library.html" %}
+{% endif %}
+{% endblock %}
