@@ -470,6 +470,16 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
             index += 1
             continue
 
+        # Native site disclosures become readable headings in the handbook.
+        summary = re.match(r"<summary>(.*?)</summary>", stripped)
+        if summary:
+            strong = re.search(r"<strong>(.*?)</strong>", summary.group(1))
+            title = clean_text(strong.group(1) if strong else summary.group(1))
+            if title:
+                doc.add_paragraph(title, style=f"Heading {min(4, heading_base + 2)}")
+            index += 1
+            continue
+
         if stripped.startswith("<") and stripped.endswith(">"):
             index += 1
             continue
