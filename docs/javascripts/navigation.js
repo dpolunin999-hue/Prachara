@@ -28,13 +28,121 @@
   if (group && group !== "home") {
 
     const intro = article.querySelector(".direction-intro");
+    const minimum = article.querySelector(".direction-start");
     if (intro) {
+      const brief = document.createElement("section");
+      brief.className = "direction-brief";
+      brief.setAttribute("aria-labelledby", "direction-mission-title");
+      const label = document.createElement("h2");
+      label.id = "direction-mission-title";
+      label.textContent = "Ваша главная задача";
+      const mission = document.createElement("p");
+      mission.className = "direction-mission";
+      // The role's purpose stays in the Markdown source shared with Word.
+      mission.textContent = intro.querySelector("h2")?.nextElementSibling?.textContent || "";
+      const begin = document.createElement("a");
+      begin.className = "md-button md-button--primary direction-begin";
+      begin.href = "#direction-step-1";
+      begin.textContent = "Начать с первого шага →";
+      intro.before(brief);
+      brief.append(label, mission, begin);
       const context = document.createElement("details");
       context.className = "direction-context";
       const summary = document.createElement("summary");
-      summary.textContent = "Цель направления и ожидаемый результат";
-      intro.before(context);
+      summary.textContent = "Какой результат должен получиться";
+      brief.append(context);
       context.append(summary, intro);
+    }
+
+    if (minimum) {
+      const titles = {
+        ads: ["Уточнить ближайшую встречу", "Оформить группу ВКонтакте", "Опубликовать объявление Avito", "Наладить ответы на обращения"],
+        programs: ["Выбрать формат и пользу встречи", "Определить ведущего, место и время", "Собрать сценарий и команду", "Провести встречу и передать заботнику"],
+        care: ["Подготовить учёт и общий чат", "Ответить и выбрать следующий шаг", "Помочь человеку прийти впервые", "Продолжить контакт после встречи"],
+        secretary: ["Распределить ответственность", "Согласовать ближайшую программу", "Записать задачи и сроки", "Разобрать результат с командой"]
+      };
+      const heading = minimum.querySelector("h2");
+      if (heading) heading.firstChild.textContent = "С чего начать ";
+      const list = minimum.querySelector(":scope > ol");
+      if (list) {
+        list.classList.add("start-route");
+        [...list.children].forEach((item, index) => {
+          const detail = document.createElement("details");
+          detail.className = "start-route__step";
+          detail.id = "direction-step-" + (index + 1);
+          detail.open = index === 0;
+          const summary = document.createElement("summary");
+          const number = document.createElement("span");
+          number.className = "start-route__number";
+          number.textContent = String(index + 1).padStart(2, "0");
+          const title = document.createElement("span");
+          title.textContent = titles[group]?.[index] || "Шаг " + (index + 1);
+          summary.append(number, title);
+          const body = document.createElement("div");
+          body.className = "start-route__body";
+          while (item.firstChild) body.append(item.firstChild);
+          body.querySelectorAll("a").forEach(link => {
+            link.textContent = link.textContent.replace(/^Инструкция:\s*/, "");
+            link.classList.add("start-route__link");
+          });
+          detail.append(summary, body);
+          item.append(detail);
+        });
+      }
+      const roadmap = minimum.querySelector(".direction-roadmap");
+      if (roadmap) {
+        const headings = [...roadmap.querySelectorAll(":scope > h3")];
+        headings.forEach((heading, index) => {
+          const detail = document.createElement("details");
+          detail.className = "direction-stage";
+          detail.id = index === 0 ? "direction-routine" : "direction-development";
+          const summary = document.createElement("summary");
+          summary.textContent = heading.textContent.replace("¶", "").trim();
+          if (heading.id) {
+            const anchor = document.createElement("span");
+            anchor.id = heading.id;
+            anchor.setAttribute("aria-hidden", "true");
+            summary.prepend(anchor);
+          }
+          const body = document.createElement("div");
+          body.className = "direction-stage__body";
+          let next = heading.nextElementSibling;
+          while (next && next.tagName !== "H3") {
+            const following = next.nextElementSibling;
+            body.append(next); next = following;
+          }
+          detail.append(summary, body);
+          roadmap.before(detail);
+        });
+        roadmap.remove();
+      }
+      const stages = document.createElement("nav");
+      stages.className = "direction-stage-nav";
+      stages.setAttribute("aria-label", "Этапы работы в направлении");
+      const routes = [["direction-minimum", "1", "С чего начать"], ["direction-routine", "2", "Регулярная работа"], ["direction-development", "3", "Развитие"]];
+      routes.forEach(([id, number, title]) => {
+        const link = document.createElement("a");
+        link.href = "#" + id;
+        const index = document.createElement("span");
+        index.textContent = number; index.className = "direction-stage-nav__number";
+        const text = document.createElement("span"); text.textContent = title;
+        link.append(index, text); stages.append(link);
+      });
+      minimum.prepend(stages);
+      const updateStage = id => stages.querySelectorAll("a").forEach(link => {
+        if (link.hash === "#" + id) link.setAttribute("aria-current", "step");
+        else link.removeAttribute("aria-current");
+      });
+      updateStage("direction-minimum");
+      stages.addEventListener("click", event => {
+        const link = event.target.closest("a");
+        if (link) updateStage(link.hash.slice(1));
+      });
+      addEventListener("hashchange", () => {
+        const id = location.hash.slice(1);
+        if (routes.some(route => route[0] === id)) updateStage(id);
+        else if (id.startsWith("direction-step-")) updateStage("direction-minimum");
+      });
     }
 
     const sections = [...article.querySelectorAll(":scope > h2")];

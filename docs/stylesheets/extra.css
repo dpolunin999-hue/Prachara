@@ -913,3 +913,32 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset .resource-copy {border:1px solid #e3bda2;border-radius:.4rem;padding:.4rem .7rem;background:#fff8f1;color:#a7440c;font:inherit;font-size:.72rem;font-weight:600;cursor:pointer}
 .md-typeset .resource-copy:hover {background:#ffecd9}
 .md-typeset .resource-copy:focus-visible {outline:3px solid #d65b14;outline-offset:3px}
+
+/* A clear role purpose followed by an actionable route. */
+.md-typeset .direction-brief {margin:1rem 0 1.3rem}
+.md-typeset .direction-brief > h2 {font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#a84a17;margin:0 0 .5rem}
+.md-typeset .direction-mission {font-size:1.05rem;line-height:1.55;font-weight:500;margin:0 0 .8rem;max-width:46rem}
+.md-typeset .direction-begin {font-size:.76rem;padding:.55rem .9rem;border-radius:.5rem;min-height:44px}
+.md-typeset .direction-brief .direction-context {margin:.75rem 0 0;border:0;box-shadow:none;background:transparent}
+.md-typeset .direction-brief .direction-context > summary {background:transparent;font-size:.72rem;color:var(--md-default-fg-color--light);padding-left:0}
+.md-typeset .direction-brief .direction-context > summary::before {display:none}
+.md-typeset .direction-brief .direction-context .direction-intro {padding:.5rem 0}
+.md-typeset .direction-stage-nav {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem;margin:0 0 1.2rem}
+.md-typeset .direction-stage-nav a {display:flex;align-items:center;gap:.5rem;min-height:52px;padding:.6rem;border:1px solid #e6ddd5;border-radius:.5rem;font-size:.72rem;color:#61554c;background:#fff}
+.md-typeset .direction-stage-nav a[aria-current] {color:#a64010;background:#fff0e3;border-color:#e9af85;font-weight:600}
+.md-typeset .direction-stage-nav a:hover {border-color:#db884c;background:#fff8f0}
+.direction-stage-nav__number {font-size:.72rem;color:#aa5827}
+.md-typeset .direction-start ol.start-route {list-style:none;margin:.75rem 0 1rem;padding:0}
+.md-typeset .start-route > li {padding:0;margin:0 0 .45rem}
+.md-typeset details.start-route__step {margin:0;border-radius:.5rem;box-shadow:none}
+.md-typeset .start-route__step > summary {display:flex;align-items:center;gap:.65rem;padding:.7rem 2rem .7rem .75rem;min-height:52px;font-size:.82rem;font-weight:600;line-height:1.4}
+.md-typeset .start-route__step > summary::before {display:none}
+.md-typeset .start-route__step > summary::after {right:.75rem}
+.start-route__number {flex:none;color:#b55a26;font-size:.7rem;font-weight:500}
+.md-typeset .start-route__body {padding:.7rem .85rem .9rem;font-size:.8rem;line-height:1.65}
+.md-typeset .start-route__link {display:block;width:fit-content;margin:.55rem 0 0;border-bottom:1px solid #e5b08a;font-weight:600}
+.md-typeset .direction-stage {box-shadow:none;border-radius:.5rem;margin:.5rem 0}
+.md-typeset .direction-stage > summary {min-height:52px;font-size:.82rem}
+.md-typeset .direction-stage__body {padding:.3rem .85rem .75rem}
+.direction-stage-nav a:focus-visible,.start-route__link:focus-visible {outline:3px solid #d65b14;outline-offset:3px}
+@media(max-width:480px){.md-typeset .direction-mission{font-size:.94rem}.md-typeset .direction-stage-nav{gap:.3rem}.md-typeset .direction-stage-nav a{flex-direction:column;align-items:flex-start;gap:.2rem;font-size:.66rem;padding:.5rem;min-height:72px}.md-typeset .start-route__step > summary{font-size:.78rem}}
