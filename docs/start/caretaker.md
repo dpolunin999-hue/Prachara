@@ -21,6 +21,37 @@ hide:
 
 </div>
 
+<div class="direction-start" markdown="1">
+
+## Сделать сначала { #direction-minimum }
+
+**Первый результат:** У каждого человека есть ответственный, понятный следующий шаг и живой контакт.
+
+1. Назначьте заботника, подготовьте приложение для учёта и общий чат. [Начать учёт](#care-step-9) · [Создать чат](#care-step-10)
+2. Ответьте на запрос человека и договоритесь о ближайшем шаге. [Инструкция: Первый ответ](#care-step-1)
+3. Перед встречей объясните дорогу и формат; на встрече помогите освоиться. [Инструкция: Подготовить первый приход](#care-step-2)
+4. После встречи спросите впечатления, отправьте один нужный материал и запишите следующую договорённость. [Инструкция: Продолжить контакт](#care-step-4)
+
+<details markdown="1" class="direction-roadmap">
+<summary>Дальше — два этапа развития</summary>
+
+### 2. Наладить регулярную работу
+
+Проверяйте договорённости и кому нужен ответ. Поддерживайте чат без спама. Предлагайте материалы по запросу и приглашайте на подходящую следующую встречу.
+
+**Переходите дальше, когда:** этот минимум повторяется, команда знает свои задачи и человек получает понятное продолжение.
+
+### 3. Развивать постепенно
+
+Помогайте двигаться к самостоятельной практике, базовому курсу, сообществу и индивидуальному обучению по готовности человека. Путь не жёсткий: следующий шаг выбирается вместе с человеком.
+
+Это рабочий ориентир этапов; выбирайте темп по возможностям юнита. Не нужно включать все инструменты сразу.
+
+</details>
+
+</div>
+
+
 ## Этапы пути
 
 <div class="grid cards action-cards care-overview-list" markdown>
@@ -233,7 +264,7 @@ hide:
 
 1. Связаться примерно в течение суток.
 2. Продолжить личный разговор, а не отправлять автоматическое «Спасибо за посещение».
-3. Ответить на вопрос или дать один подходящий материал.
+3. Ответить на вопрос или дать один подходящий материал: [ссылки с быстрым копированием](#care-resources).
 4. Предложить следующий шаг, связанный с запросом человека.
 5. Обновить запись в приложении.
 
@@ -734,6 +765,214 @@ hide:
 **Помог углубиться** → при готовности соединил с индивидуальным обучением и инициацией.
 
 </div>
+
+
+
+## Полезные ссылки — отправить человеку { #care-resources }
+
+Выберите запрос, затем площадку. Кнопка **«Копировать ссылку»** копирует только адрес — его можно сразу вставить в сообщение. Обычно достаточно одного подходящего материала.
+
+<details markdown="1" class="resource-topic" open>
+<summary>КДИ и базовый курс медитации</summary>
+
+**КДИ:** отправьте, когда человек спрашивает об этом обучении или продолжении пути. Условия и доступность смотрите на странице организаторов.
+
+<div class="resource-link" markdown="1">
+
+[КДИ — страница курса](https://anandamarga.ru/kdi)
+
+</div>
+
+**Базовый курс:** для человека, который хочет познакомиться с медитацией и начать обучение.
+
+<div class="resource-link" markdown="1">
+
+[Базовый курс по медитации](https://xn--80ahclcbajtrv5ae6c.xn--80asehdb/meditation_basic_course)
+
+</div>
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Асаны</summary>
+
+Видео об асанах и правилах практики.
+
+<div class="resource-link" markdown="1">
+
+[YouTube — Асаны](https://www.youtube.com/playlist?list=PLk_DIFMPglObPxeZdJHdEJjoPY7nLF2oC)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[RUTUBE — Асаны](https://rutube.ru/plst/42061/)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[VK Видео — все подборки канала](https://vkvideo.ru/@meditation_lessons/playlists)
+
+</div>
+
+*Для VK пока дана общая страница: прямая тематическая ссылка ещё не подтверждена.*
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Питание и рецепты</summary>
+
+Здесь рецепты; это не полный курс о питании. Подбирайте материал под конкретный вопрос.
+
+<div class="resource-link" markdown="1">
+
+[YouTube — Рецепты](https://www.youtube.com/playlist?list=PLk_DIFMPglOY7oCqU2cIFRLK9V_XioKnx)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[RUTUBE — Вегетарианские рецепты](https://rutube.ru/plst/42365/)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[VK Видео — все подборки канала](https://vkvideo.ru/@meditation_lessons/playlists)
+
+</div>
+
+*Для VK пока дана общая страница: прямая тематическая ссылка ещё не подтверждена.*
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Этические принципы йоги — Яма и Нияма</summary>
+
+Принципы гармоничной жизни. На YouTube выбрана обновлённая версия 2024 года.
+
+<div class="resource-link" markdown="1">
+
+[YouTube — Как жить в балансе? Джама Нияма](https://www.youtube.com/playlist?list=PLk_DIFMPglObqa73pA1rqvVAjUfWXrdAL)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[RUTUBE — Яма Нияма. Принципы гармоничной жизни](https://rutube.ru/plst/39156/)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[VK Видео — все подборки канала](https://vkvideo.ru/@meditation_lessons/playlists)
+
+</div>
+
+*Для VK пока дана общая страница: прямая тематическая ссылка ещё не подтверждена.*
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Чакры и биопсихология йоги</summary>
+
+Подборка «Биопсихология йоги» включает видео о чакрах.
+
+<div class="resource-link" markdown="1">
+
+[YouTube — Биопсихология Йоги](https://www.youtube.com/playlist?list=PLk_DIFMPglOYfZW-VPDlkDyjmGRA9K7FF)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[RUTUBE — Биопсихология йоги](https://rutube.ru/plst/36103/)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[VK Видео — все подборки канала](https://vkvideo.ru/@meditation_lessons/playlists)
+
+</div>
+
+*Для VK пока дана общая страница: прямая тематическая ссылка ещё не подтверждена.*
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>С чего начать медитацию</summary>
+
+Видео для знакомства с практикой. Для прохождения базового курса используйте ссылку на курс выше.
+
+<div class="resource-link" markdown="1">
+
+[YouTube — Стартовый курс по медитации](https://www.youtube.com/playlist?list=PLk_DIFMPglOYDUx1NfKPqVcKncC-_e4m_)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[RUTUBE — Базовый курс медитации 2.0](https://rutube.ru/plst/460883/)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[VK Видео — все подборки канала](https://vkvideo.ru/@meditation_lessons/playlists)
+
+</div>
+
+*Для VK пока дана общая страница: прямая тематическая ссылка ещё не подтверждена.*
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Другие практики йоги</summary>
+
+Общая подборка по практикам йоги.
+
+<div class="resource-link" markdown="1">
+
+[YouTube — Практики йоги](https://www.youtube.com/playlist?list=PLk_DIFMPglOaGk--u9Ioo8TmwkWinLRe6)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[RUTUBE — Практики йоги](https://rutube.ru/plst/42364/)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[VK Видео — все подборки канала](https://vkvideo.ru/@meditation_lessons/playlists)
+
+</div>
+
+*Для VK пока дана общая страница: прямая тематическая ссылка ещё не подтверждена.*
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Все плейлисты и каналы проекта</summary>
+
+Чтобы человек мог самостоятельно выбрать тему или подписаться на проект.
+
+<div class="resource-link" markdown="1">
+
+[YouTube — все плейлисты](https://www.youtube.com/@urokimeditacii/playlists)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[RUTUBE — все плейлисты](https://rutube.ru/channel/8526421/playlists/)
+
+</div>
+<div class="resource-link" markdown="1">
+
+[VK Видео — все плейлисты](https://vkvideo.ru/@meditation_lessons/playlists)
+
+</div>
+
+</details>
+
+??? example "Как отправить материал без перегрузки"
+
+    ```text
+    [ИМЯ], вы спрашивали про [ТЕМА]. Вот подборка «Уроков медитации» по этому вопросу: [ССЫЛКА]. Если захотите обсудить — напишите.
+    ```
+
+YouTube и RUTUBE проверены по каталогам проекта 2 октября 2026 года. Ссылки КДИ, курса и VK предоставлены командой. Тематические адреса VK нужно дополнить после проверки доступа.
 
 ## Полный маршрут заботы
 

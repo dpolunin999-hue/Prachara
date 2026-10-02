@@ -215,6 +215,12 @@ extra:
       target: "start/caretaker/#care-step-14"
       keywords: "формула сообщение проверить шаблон"
       featured: false
+    - group: care
+      title: "Отправить курс или полезную подборку"
+      description: "КДИ, медитация, асаны, питание, Яма–Нияма и чакры"
+      target: "start/caretaker/#care-resources"
+      keywords: "ссылки материал курс кди асаны питание рецепты чакры принципы яма нияма видео youtube rutube vk"
+      featured: true
     - group: secretary
       title: "Провести созвон команды"
       description: "Структура разговора на 30–45 минут"

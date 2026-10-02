@@ -51,7 +51,7 @@
 
   if (finder) {
     const intro = article.querySelector(".direction-intro, .prachar-hero");
-    if (intro) (intro.closest(".direction-context") || intro).after(finder);
+    if (intro) (article.querySelector(".direction-start") || intro.closest(".direction-context") || intro).after(finder);
     else article.querySelector("h1")?.after(finder);
     const query = finder.querySelector("input");
     const rows = [...finder.querySelectorAll(".task-results > li")];
@@ -65,7 +65,7 @@
       const candidates = rows.filter(row => group === "home" || row.dataset.taskCategory === group);
       const matched = candidates.filter(row => words.every(word => normalize(row.textContent + " " + row.dataset.taskKeywords).includes(word)));
       const shown = words.length || expanded || (group !== "care" && group !== "home")
-        ? matched : matched.filter(row => group === "home" ? row.dataset.featured === "true" : ["care-step-1","care-step-2","care-step-3","care-step-4","care-step-6","care-step-9"].some(id => row.querySelector("a").hash === "#" + id));
+        ? matched : matched.filter(row => group === "home" ? row.dataset.featured === "true" : ["care-step-1","care-step-2","care-step-3","care-step-4","care-step-6","care-step-9","care-resources"].some(id => row.querySelector("a").hash === "#" + id));
       rows.forEach(row => { row.hidden = !shown.includes(row); });
       count.textContent = words.length ? "Найдено действий: " + matched.length : "Показано " + shown.length + " из " + candidates.length;
       empty.hidden = matched.length !== 0;
@@ -243,6 +243,40 @@
     addCopy(detail, () => [...detail.children]
       .filter(child => child.tagName !== "SUMMARY" && !child.classList.contains("template-tools"))
       .map(child => child.innerText).join("\n\n"), "Скопировать промпт");
+  });
+
+  article.querySelectorAll(".resource-link").forEach(row => {
+    const link = row.querySelector("a");
+    if (!link) return;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "template-copy resource-copy";
+    button.textContent = "Копировать ссылку";
+    button.setAttribute("aria-label", "Скопировать ссылку: " + link.textContent);
+    const status = document.createElement("span");
+    status.className = "resource-status";
+    status.setAttribute("role", "status");
+    row.append(button, status);
+    button.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(link.href);
+        status.textContent = "Скопировано";
+        setTimeout(() => { status.textContent = ""; }, 2500);
+      } catch {
+        let fallback = row.querySelector("input");
+        if (!fallback) {
+          fallback = document.createElement("input");
+          fallback.type = "text";
+          fallback.readOnly = true;
+          fallback.className = "resource-fallback";
+          fallback.setAttribute("aria-label", "Адрес для ручного копирования");
+          fallback.value = link.href;
+          row.append(fallback);
+        }
+        fallback.focus(); fallback.select();
+        status.textContent = "Адрес выделен — скопируйте через меню устройства.";
+      }
+    });
   });
 
   revealHash();

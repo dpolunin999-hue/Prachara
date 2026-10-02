@@ -893,3 +893,23 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset details[class] > summary::before { background-color: #b95c2d; }
 .md-typeset .highlight .md-clipboard { display: none; }
 .md-typeset .headerlink { display: none; }
+
+/* Visible first actions and progressive development of each direction. */
+.md-typeset .direction-start {margin:1.2rem 0 1.5rem;padding:0 0 1rem;border-bottom:1px solid var(--md-default-fg-color--lightest)}
+.md-typeset .direction-start h2 {font-size:1.12rem;margin:.6rem 0}
+.md-typeset .direction-start ol {margin:.8rem 0 .8rem 1.1rem}
+.md-typeset .direction-start li {padding-left:.25rem;margin-bottom:.65rem;line-height:1.65}
+.md-typeset .direction-roadmap {margin-top:1rem}
+.md-typeset .resource-topic {margin:.6rem 0}
+.md-typeset .resource-link {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.3rem .7rem;align-items:center;padding:.65rem 0;border-bottom:1px solid var(--md-default-fg-color--lightest)}
+.md-typeset .resource-link p {margin:0;min-width:0}
+.md-typeset .resource-link a {overflow-wrap:anywhere}
+.md-typeset .resource-copy {min-height:44px;white-space:normal}
+.md-typeset .resource-status {grid-column:1/-1;font-size:.68rem;color:var(--md-default-fg-color--light)}
+.md-typeset .resource-status:empty {display:none}
+.md-typeset .resource-fallback {grid-column:1/-1;width:100%;padding:.5rem;border:1px solid var(--md-default-fg-color--light)}
+@media(max-width:480px){.md-typeset .resource-link{grid-template-columns:1fr}.md-typeset .resource-copy{justify-self:start}.md-typeset .direction-start li a{display:block}}
+
+.md-typeset .resource-copy {border:1px solid #e3bda2;border-radius:.4rem;padding:.4rem .7rem;background:#fff8f1;color:#a7440c;font:inherit;font-size:.72rem;font-weight:600;cursor:pointer}
+.md-typeset .resource-copy:hover {background:#ffecd9}
+.md-typeset .resource-copy:focus-visible {outline:3px solid #d65b14;outline-offset:3px}
