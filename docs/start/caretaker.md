@@ -281,17 +281,61 @@ hide:
     ```text
     [ИМЯ], рад был вчера познакомиться. Вы говорили, что вам особенно откликнулась медитация, но было сложно удерживать внимание.
 
-    Вот небольшой материал как раз по теме концентрации: [ССЫЛКА]. Не обязательно смотреть сразу. Если появятся вопросы — пишите.
+    Вот видео «Как правильно медитировать? Тонкости идеальной практики» (19 минут), в котором есть объяснение концентрации: https://rutube.ru/video/c4f5b944907fef642dc5b30a23187025/
+
+    Не обязательно смотреть сразу. Если появятся вопросы — пишите.
     ```
 
-??? info "Как дать пользу по запросу"
+<details markdown="1" class="info contextual-resources">
+<summary>Как дать пользу по запросу</summary>
 
-    Не отправляйте всё, что есть. Обычно достаточно одного материала.
+Не отправляйте всё, что есть. Обычно достаточно одного материала.
 
-    - **Медитация:** предложить вводный курс и сначала спросить, нужна ли ссылка.
-    - **Асаны:** предложить подходящий класс; при травмах или ограничениях направить к инструктору.
-    - **Философия:** дать одну понятную лекцию без перегрузки терминами.
-    - **Книги:** уточнить тему и подобрать одну или две книги.
+Нажмите «Копировать ссылку» или «Скопировать сообщение». Во втором случае адрес уже будет в сообщении.
+
+**Концентрация:** видео о тонкостях медитации; объяснение концентрации начинается примерно с 09:06.
+
+<div class="resource-link resource-link--compact" data-share-topic="концентрацию" markdown="1">
+
+[Концентрация — видео, 19 минут](https://rutube.ru/video/c4f5b944907fef642dc5b30a23187025/)
+
+</div>
+
+**Медитация:** предложить вводный курс и сначала спросить, нужна ли ссылка.
+
+<div class="resource-link resource-link--compact" data-share-topic="медитацию" markdown="1">
+
+[Медитация — базовый курс](https://xn--80ahclcbajtrv5ae6c.xn--80asehdb/meditation_basic_course)
+
+</div>
+
+**Асаны:** предложить подходящий класс; при травмах или ограничениях направить к инструктору. Подборка дополняет живое занятие.
+
+<div class="resource-link resource-link--compact" data-share-topic="асаны" markdown="1">
+
+[Асаны — подборка RUTUBE](https://rutube.ru/plst/42061/)
+
+</div>
+
+**Философия:** уточнить тему; для знакомства с этическими принципами подойдёт Яма–Нияма. Не отправлять весь цикл сразу.
+
+<div class="resource-link resource-link--compact" data-share-topic="принципы йоги" markdown="1">
+
+[Яма–Нияма — принципы йоги](https://rutube.ru/plst/39156/)
+
+</div>
+
+**Книги:** уточнить тему и подобрать одну или две книги. Каталог содержит электронные книги; условия указаны в магазине.
+
+<div class="resource-link resource-link--compact" data-share-topic="книги" markdown="1">
+
+[Sattva Shop — книги](https://sattva-shop.ru/product-category/books/)
+
+</div>
+
+[Выбрать другую площадку или тему](#care-resources).
+
+</details>
 
 ??? example "Персональное приглашение"
 
@@ -394,9 +438,11 @@ hide:
 ??? example "Через несколько недель — с полезным поводом"
 
     ```text
-    [ИМЯ], здравствуйте! Вы спрашивали про [ТЕМА].
+    [ИМЯ], здравствуйте! Вы спрашивали про самостоятельную медитацию.
 
-    У нас появился хороший материал по этой теме. Вспомнил про вас и решил отправить: [ССЫЛКА].
+    Вспомнил про вас и решил отправить базовый курс: https://xn--80ahclcbajtrv5ae6c.xn--80asehdb/meditation_basic_course
+
+    Если сейчас актуальна другая тема — напишите, подберём материал по вашему запросу.
     ```
 
 ??? example "Через месяц или полтора"
@@ -943,6 +989,56 @@ hide:
 
 </details>
 
+
+<details markdown="1" class="resource-topic">
+<summary>Концентрация и внимание</summary>
+
+Видео «Как правильно медитировать? Тонкости идеальной практики» — 19 минут. Объяснение концентрации примерно с 09:06.
+
+<div class="resource-link resource-link--compact" data-share-topic="концентрацию" markdown="1">
+
+[RUTUBE — тонкости медитации](https://rutube.ru/video/c4f5b944907fef642dc5b30a23187025/)
+
+</div>
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Философия йоги</summary>
+
+Цикл «Ананда Сутрам»; выбирайте одну лекцию под вопрос человека.
+
+<div class="resource-link resource-link--compact" data-share-topic="философию йоги" markdown="1">
+
+[YouTube — философия йоги](https://www.youtube.com/playlist?list=PLk_DIFMPglOb6Uo5V3IvqXX80V3Hee4TG)
+
+</div>
+<div class="resource-link resource-link--compact" data-share-topic="философию йоги" markdown="1">
+
+[RUTUBE — философия йоги](https://rutube.ru/plst/667740/)
+
+</div>
+
+</details>
+
+<details markdown="1" class="resource-topic">
+<summary>Книги — Sattva Shop</summary>
+
+Книги по йоге, медитации и философии. Условия приобретения указаны в магазине.
+
+<div class="resource-link resource-link--compact" data-share-topic="книги" markdown="1">
+
+[Sattva Shop — каталог книг](https://sattva-shop.ru/product-category/books/)
+
+</div>
+<div class="resource-link resource-link--compact" data-share-topic="книги о медитации" markdown="1">
+
+[Книга «Урокимедитации»](https://sattva-shop.ru/shop/%D1%83%D1%80%D0%BE%D0%BA%D0%B8-%D0%BC%D0%B5%D0%B4%D0%B8%D1%82%D0%B0%D1%86%D0%B8%D0%B8-%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F-%D0%BE%D0%BF%D0%BB%D0%B0%D1%82%D0%B0/)
+
+</div>
+
+</details>
+
 <details markdown="1" class="resource-topic">
 <summary>Все плейлисты и каналы проекта</summary>
 
@@ -969,7 +1065,9 @@ hide:
 ??? example "Как отправить материал без перегрузки"
 
     ```text
-    [ИМЯ], вы спрашивали про [ТЕМА]. Вот подборка «Уроков медитации» по этому вопросу: [ССЫЛКА]. Если захотите обсудить — напишите.
+    [ИМЯ], вы спрашивали, с чего начать медитацию. Вот базовый курс «Уроков медитации»: https://xn--80ahclcbajtrv5ae6c.xn--80asehdb/meditation_basic_course
+
+    Если захотите обсудить — напишите.
     ```
 
 YouTube и RUTUBE проверены по каталогам проекта 2 октября 2026 года. Ссылки КДИ, курса и VK предоставлены командой. Тематические адреса VK нужно дополнить после проверки доступа.

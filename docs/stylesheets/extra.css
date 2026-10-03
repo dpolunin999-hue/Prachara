@@ -942,3 +942,32 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset .direction-stage__body {padding:.3rem .85rem .75rem}
 .direction-stage-nav a:focus-visible,.start-route__link:focus-visible {outline:3px solid #d65b14;outline-offset:3px}
 @media(max-width:480px){.md-typeset .direction-mission{font-size:.94rem}.md-typeset .direction-stage-nav{gap:.3rem}.md-typeset .direction-stage-nav a{flex-direction:column;align-items:flex-start;gap:.2rem;font-size:.66rem;padding:.5rem;min-height:72px}.md-typeset .start-route__step > summary{font-size:.78rem}}
+
+/* Small contextual resource actions, with addresses kept out of the preview. */
+.md-typeset .resource-link--compact {grid-template-columns:minmax(0,1fr) auto auto;gap:.3rem .45rem;padding:.4rem 0;font-size:.76rem}
+.md-typeset .resource-link--compact .resource-copy {font-size:.66rem;padding:.3rem .5rem;min-height:44px}
+.md-typeset .care-step code a {font-family:var(--md-text-font-family);font-size:.75rem;white-space:normal}
+@media(max-width:640px){.md-typeset .resource-link--compact{grid-template-columns:1fr 1fr}.md-typeset .resource-link--compact > p{grid-column:1/-1}.md-typeset .resource-link--compact .resource-copy{justify-self:stretch}.md-typeset .resource-link--compact .resource-status{grid-column:1/-1}}
+
+/* Care: one branch, one instruction, with a local way back. */
+.care-workspace-page [hidden] {display:none!important}
+.md-typeset .care-branch-nav {position:sticky;top:var(--prachar-nav-bottom,100px);z-index:3;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem;padding:.6rem 0;background:#faf7f3}
+.md-typeset .care-branch-nav button {min-height:48px;padding:.5rem;border:1px solid #e4d9cf;border-radius:.5rem;background:#fff;color:#685749;font:inherit;font-size:.76rem;cursor:pointer}
+.md-typeset .care-branch-nav button[aria-selected="true"] {background:#ef6419;color:#fff;border-color:#ef6419;font-weight:600}
+.md-typeset .care-panel > h2 {font-size:1.1rem;margin:.9rem 0 .35rem}
+.md-typeset .care-panel-intro {color:#756c64;font-size:.78rem;margin:.2rem 0 1rem}
+.md-typeset .care-search {margin:.35rem 0 .7rem;box-shadow:none}
+.md-typeset .care-search > summary {font-size:.72rem}
+.md-typeset .care-panel .care-step__number {display:none}
+.md-typeset .care-panel .care-step > summary {display:flex;padding:.8rem 2rem .8rem 1rem}
+.md-typeset .care-panel .care-step__summary {display:block;flex:1;min-width:0}
+.md-typeset .care-panel .care-step__summary strong {display:block}
+.md-typeset .care-panel .care-step__summary small {font-size:.7rem;line-height:1.5}
+.md-typeset .care-back {min-height:44px;margin:0 0 .6rem;padding:.4rem .65rem;border:1px solid #e3bca0;border-radius:.4rem;color:#a7440c;background:#fff8f1;font:inherit;font-size:.75rem;cursor:pointer}
+.md-typeset .care-panel .care-branch-item {margin:.5rem 0;box-shadow:none}
+.md-typeset .care-panel:not([hidden]) {animation:care-reveal .16s ease-out}
+.md-typeset .care-panel .care-branch-item[open] > .care-step__body {animation:care-reveal .16s ease-out}
+@keyframes care-reveal {from{opacity:.7;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.md-typeset .care-panel,.md-typeset .care-panel .care-step__body{animation:none!important}}
+@media(max-width:640px){.md-typeset .care-branch-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.md-typeset .care-branch-nav button{font-size:.73rem}}
+.care-branch-nav button:focus-visible,.care-back:focus-visible{outline:3px solid #ac4715;outline-offset:2px}
