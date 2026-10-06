@@ -46,7 +46,23 @@
       begin.href = "#direction-step-1";
       begin.textContent = "Начать с первого шага →";
       intro.before(brief);
-      brief.append(label, mission, begin);
+      const focus = document.createElement("aside");
+      focus.className = "direction-focus";
+      focus.setAttribute("aria-labelledby", label.id);
+      label.textContent = "Главная задача · " + article.querySelector("h1").textContent.replace("¶", "").trim();
+      focus.append(label, mission);
+      const responsibilities = article.querySelector(".direction-responsibilities");
+      if (responsibilities) {
+        responsibilities.querySelector("h2")?.remove();
+        responsibilities.setAttribute("aria-label", "Регулярные задачи ответственного");
+        focus.append(responsibilities);
+      }
+      brief.before(focus);
+      const scope = article.querySelector(".direction-scope");
+      const essentials = article.querySelector(".direction-essentials");
+      if (scope) brief.append(scope);
+      if (essentials) brief.append(essentials);
+      brief.append(begin);
       const context = document.createElement("details");
       context.className = "direction-context";
       const summary = document.createElement("summary");
@@ -151,7 +167,7 @@
       const title = heading.textContent.replace("¶", "").trim();
       const isOverview = /^(Этапы пути|Рабочий порядок инструментов)/.test(title);
       const isInstruction = group === "ads" && /^[1-6]\./.test(title)
-        || group === "programs" && /^(Забота на самой встрече|Small talk|Библиотека интерактивов|Виды программ|Базовый маршрут подготовки|Вопросы для полного)/.test(title)
+        || group === "programs" && /^(Ритм программ|Забота на самой встрече|Small talk|Библиотека интерактивов|Виды программ|Базовый маршрут подготовки|Вопросы для полного)/.test(title)
         || group === "secretary" && /^(Карта системы|Основные области работы|Целевые действия|Созвон команды)/.test(title);
       if (isOverview || isInstruction) wrapSection(heading, isOverview ? "instruction-section instruction-section--overview" : "instruction-section");
     }
@@ -275,7 +291,9 @@
     const nav = document.querySelector(".site-nav");
     const navBottom = (header?.offsetHeight ?? 48) + (nav?.offsetHeight ?? 0);
     document.documentElement.style.setProperty("--prachar-nav-bottom", navBottom + "px");
-    const offset = navBottom + (article.querySelector(".care-branch-nav")?.offsetHeight ?? 0) + 20;
+    const focusHeight = article.querySelector(".direction-focus")?.offsetHeight ?? 0;
+    document.documentElement.style.setProperty("--prachar-focus-height", focusHeight + "px");
+    const offset = navBottom + focusHeight + (article.querySelector(".care-branch-nav")?.offsetHeight ?? 0) + 20;
     document.documentElement.style.setProperty("--prachar-scroll-offset", offset + "px");
   };
   updateOffset();
@@ -544,6 +562,13 @@
     showState(current); updateOffset();
   }
 
+  if (article.querySelector(".direction-focus")) {
+    const resize = new ResizeObserver(updateOffset);
+    resize.observe(article.querySelector(".direction-focus"));
+    const siteNav = document.querySelector(".site-nav");
+    if (siteNav) resize.observe(siteNav);
+  }
+  updateOffset();
   revealHash();
   if (document.readyState !== "complete") addEventListener("load", () => setTimeout(() => revealHash(), 100), {once:true});
 })();

@@ -971,3 +971,31 @@ html, body { overflow-x: clip; overflow-y: visible; }
 @media(prefers-reduced-motion:reduce){.md-typeset .care-panel,.md-typeset .care-panel .care-step__body{animation:none!important}}
 @media(max-width:640px){.md-typeset .care-branch-nav{grid-template-columns:repeat(2,minmax(0,1fr))}.md-typeset .care-branch-nav button{font-size:.73rem}}
 .care-branch-nav button:focus-visible,.care-back:focus-visible{outline:3px solid #ac4715;outline-offset:2px}
+
+/* Keep the role and its recurring actions visible without covering anchor targets. */
+.md-typeset .direction-focus {position:sticky;top:var(--prachar-nav-bottom,100px);z-index:4;margin:1rem 0 0;padding:.55rem 0 .25rem;border-bottom:1px solid #e9d8cb;background:#faf7f3}
+.md-typeset .direction-focus > h2 {margin:0 0 .25rem;color:#a7440c;font-size:.6rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.md-typeset .direction-focus .direction-mission {margin:0;font-size:.87rem;line-height:1.45;font-weight:600;max-width:none}
+.md-typeset .direction-responsibilities ul {display:flex;flex-wrap:wrap;gap:0 .85rem;list-style:none;margin:.15rem 0 0;padding:0}
+.md-typeset .direction-responsibilities li {margin:0;padding:0;font-size:.64rem}
+.md-typeset .direction-responsibilities a {display:flex;align-items:center;min-height:36px;color:#78614f;text-decoration:underline;text-decoration-color:#e6c4ac;text-underline-offset:.2rem}
+.md-typeset .direction-responsibilities a:hover {color:#a7440c}
+.md-typeset .direction-scope {font-size:.74rem;line-height:1.55;color:#756a60;margin:.3rem 0 .75rem}
+.md-typeset .direction-essentials {box-shadow:none;margin:.5rem 0 .85rem;border-radius:.5rem}
+.md-typeset .direction-essentials > summary {font-size:.8rem;min-height:48px}
+.md-typeset .direction-essentials ul {margin:.8rem 0 .8rem 1.25rem}
+.md-typeset .direction-brief {margin:.6rem 0 1rem}
+.md-typeset .care-branch-nav {top:calc(var(--prachar-nav-bottom,100px) + var(--prachar-focus-height,0px))}
+.md-typeset .ad-method-group {margin:.55rem 0;box-shadow:none;border-radius:.55rem}
+.md-typeset .ad-method-group > summary {min-height:52px;font-size:.84rem;line-height:1.45;padding-right:2rem}
+.md-typeset .ad-method-group pre {max-width:100%}
+@media(max-width:640px){
+ .md-typeset .direction-focus {padding:.4rem 0 .15rem}
+ .md-typeset .direction-focus > h2 {font-size:.56rem;margin-bottom:.15rem}
+ .md-typeset .direction-focus .direction-mission {font-size:.72rem;line-height:1.4}
+ .md-typeset .direction-responsibilities ul {gap:0 .65rem}
+ .md-typeset .direction-responsibilities li {font-size:.58rem}
+ .md-typeset .direction-responsibilities a {min-height:36px}
+ .md-typeset .direction-scope {font-size:.7rem}
+}
+@media print {.md-typeset .direction-focus,.md-typeset .care-branch-nav {position:static}}

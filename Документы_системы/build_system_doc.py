@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import re
 import sys
 from datetime import date
@@ -541,6 +542,11 @@ def build() -> Path:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Собрать Word-издание системы Прачары")
+    parser.add_argument("--build-date", type=date.fromisoformat, help="Дата сборки YYYY-MM-DD; по умолчанию дата компьютера")
+    args = parser.parse_args()
+    if args.build_date:
+        TODAY = args.build_date.strftime("%d.%m.%Y")
     try:
         print(build())
     except Exception as exc:
