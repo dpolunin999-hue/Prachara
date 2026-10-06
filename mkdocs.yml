@@ -89,46 +89,46 @@ extra:
       target: "start/content/#business-cards"
       keywords: "визитка офлайн раздать промпт"
       featured: false
-    - group: ads
+    - group: programs
       title: "Сделать анонс или афишу"
       description: "Шаблоны для ближайшей программы"
-      target: "start/content/#event-announcement"
+      target: "start/programs/announcement/"
       keywords: "афиша анонс картинка пост приглашение"
       featured: true
     - group: programs
       title: "Выбрать формат встречи"
       description: "Виды программ и каталог"
-      target: "start/programs/#program-types"
+      target: "start/programs/formats/"
       keywords: "формат йога медитация ретрит сатсанг программа"
       featured: true
     - group: programs
       title: "Подготовить программу"
       description: "Пять шагов от цели до завершения"
-      target: "start/programs/#program-preparation"
+      target: "start/programs/first-steps/"
       keywords: "организация сценарий подготовка провести встречу"
       featured: false
     - group: programs
       title: "Позаботиться об участниках"
       description: "До начала, во время и после встречи"
-      target: "start/programs/#care-during-program"
+      target: "start/programs/hospitality/"
       keywords: "новичок встреча забота гостеприимство"
       featured: false
     - group: programs
       title: "Начать лёгкий разговор"
       description: "Вопросы для общения до и после встречи"
-      target: "start/programs/#small-talk"
+      target: "start/programs/hospitality/"
       keywords: "общение small talk разговор знакомство вопросы"
       featured: false
     - group: programs
       title: "Выбрать интерактив"
       description: "Семь идей для участия и общения"
-      target: "start/programs/#interactives"
+      target: "start/programs/hospitality/#interactives"
       keywords: "интерактив игры упражнение участник пара группа"
       featured: false
     - group: programs
       title: "Дополнить стандарт программ"
       description: "Вопросы для наполнения раздела"
-      target: "start/programs/#program-questionnaire"
+      target: "start/programs/quality/#review-material"
       keywords: "анкета опрос вопросы стандарты содержание"
       featured: false
     - group: care
@@ -297,6 +297,29 @@ nav:
       - Программы — первые действия: start/programs/first-steps.md
       - Программы — регулярная работа: start/programs/routine.md
       - Программы — развитие: start/programs/development.md
+      - Виды программ и сценарии: start/programs/formats.md
+      - Анонс и афиша: start/programs/announcement.md
+      - Общая регистрация: start/programs/registration.md
+      - Качество программ: start/programs/quality.md
+      - Знакомство и внимание: start/programs/hospitality.md
+      - Сценарии:
+          - Коллективная медитация: start/programs/formats/meditation.md
+          - Асана-класс: start/programs/formats/asana.md
+          - Хатха-йога: start/programs/formats/hatha.md
+          - Садхана Шивир: start/programs/formats/sadhana-shivir.md
+          - Открытая или тематическая встреча: start/programs/formats/lecture.md
+          - Мастер-класс: start/programs/formats/workshop.md
+          - Обучение и базовый курс: start/programs/formats/course.md
+          - Философская встреча и чтение: start/programs/formats/philosophy.md
+          - Сатсанг и вопросы: start/programs/formats/satsang.md
+          - Киртан и совместная практика: start/programs/formats/kirtan.md
+          - Встреча с преподавателем: start/programs/formats/teacher.md
+          - Кино или совместный просмотр: start/programs/formats/cinema.md
+          - Театр или культурный выход: start/programs/formats/theatre.md
+          - Прогулка или поход: start/programs/formats/walk.md
+          - Неформальная встреча сообщества: start/programs/formats/community.md
+          - Карма-йога и совместное дело: start/programs/formats/service.md
+          - Ретрит или многодневный выезд: start/programs/formats/retreat.md
       - Каталог программ: 08_Программы/Каталог_программ.md
       - Стандарт коллективной практики: 08_Программы/Стандарт_коллективной_практики.md
   - Обучение прачарщиков: 09_Обучение_прачарщиков/Система_обучения.md

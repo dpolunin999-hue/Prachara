@@ -68,8 +68,8 @@
 <div class="quick-actions" markdown>
 
 - [Ответить человеку, который написал](start/care/journey.md#care-step-1)
-- [Подготовить афишу мероприятия](start/content.md#poster)
-- [Выбрать формат программы](start/programs.md#program-types)
+- [Подготовить афишу мероприятия](start/programs/announcement.md)
+- [Выбрать формат программы](start/programs/formats.md)
 - [Провести созвон команды](start/secretary.md#team-call)
 - [Открыть приложение учёта](https://dpolunin999-hue.github.io/Prachara/app/)
 - [Найти материал через поиск](start/materials.md)

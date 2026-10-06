@@ -1026,3 +1026,20 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset .care-guide details > summary::before {display:none}
 .md-typeset .care-guide details > summary::after {position:absolute;top:50%;right:.85rem;width:.4rem;height:.4rem;margin-top:-.25rem;border-right:2px solid #b66c40;border-bottom:2px solid #b66c40;background:none;mask:none;-webkit-mask:none;transform:rotate(45deg);content:""}
 .md-typeset .care-guide details[open] > summary::after {margin-top:-.05rem;transform:rotate(225deg)}
+
+/* Programs use the same quiet, separate-page structure as care. */
+.md-typeset .program-hub,.md-typeset .program-guide {max-width:48rem;margin-top:.8rem}
+.md-typeset .program-hub > p,.md-typeset .program-guide > p {font-size:.85rem;line-height:1.6}
+.md-typeset .program-action {margin:.6rem 0;box-shadow:none;border-radius:.65rem}
+.md-typeset .program-guide details > summary {font-size:.84rem;line-height:1.45;min-height:48px;padding-left:.85rem;padding-right:2rem}
+.md-typeset .program-guide details > summary::before {display:none}
+.md-typeset .program-guide details > summary::after {position:absolute;top:50%;right:.85rem;width:.4rem;height:.4rem;margin-top:-.25rem;border-right:2px solid #b66c40;border-bottom:2px solid #b66c40;background:none;mask:none;-webkit-mask:none;transform:rotate(45deg);content:""}
+.md-typeset .program-guide details[open] > summary::after {margin-top:-.05rem;transform:rotate(225deg)}
+.md-typeset .program-guide .highlight pre code {white-space:pre-wrap;overflow-wrap:anywhere}
+.md-typeset .program-guide [hidden] {display:none!important}
+.md-typeset .program-format-search {display:block;margin:1rem 0;font-size:.74rem;color:#786252}
+.md-typeset .program-format-search input {display:block;width:100%;min-height:44px;border:1px solid #dfcbbb;border-radius:.5rem;background:#fff;padding:.55rem .7rem;font:inherit;color:#392e27;margin-top:.3rem}
+.md-typeset .program-format-list h3 {font-size:.84rem}
+.md-typeset .program-format-list a {padding-block:.65rem}
+.md-typeset .program-format-list strong {font-size:.86rem}
+@media(max-width:640px){.md-typeset .program-hub > p,.md-typeset .program-guide > p{font-size:.8rem}}
