@@ -117,6 +117,7 @@ def add_hyperlink(paragraph, text: str, url: str, bold=False, italic=False):
 
 
 def clean_text(text: str) -> str:
+    text = re.sub(r"(\]\([^)]+\))\s*\{[^{}\n]*\}", r"\1", text)
     text = re.sub(r"\{[^{}]*\}\s*$", "", text)
     text = re.sub(r"<[^>]+>", "", text)
     return text.replace("&nbsp;", " ").strip()
