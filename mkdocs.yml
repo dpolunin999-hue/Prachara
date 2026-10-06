@@ -297,6 +297,7 @@ nav:
       - Программы — первые действия: start/programs/first-steps.md
       - Программы — регулярная работа: start/programs/routine.md
       - Программы — развитие: start/programs/development.md
+      - Обязанности ответственного: start/programs/responsibilities.md
       - Виды программ и сценарии: start/programs/formats.md
       - Анонс и афиша: start/programs/announcement.md
       - Общая регистрация: start/programs/registration.md
@@ -305,15 +306,13 @@ nav:
       - Сценарии:
           - Коллективная медитация: start/programs/formats/meditation.md
           - Асана-класс: start/programs/formats/asana.md
-          - Хатха-йога: start/programs/formats/hatha.md
+          - Дхарма деха: start/programs/formats/dharma-deha.md
           - Садхана Шивир: start/programs/formats/sadhana-shivir.md
-          - Открытая или тематическая встреча: start/programs/formats/lecture.md
-          - Мастер-класс: start/programs/formats/workshop.md
-          - Обучение и базовый курс: start/programs/formats/course.md
+          - Тематическая лекция: start/programs/formats/lecture.md
+          - Тематическое занятие: start/programs/formats/thematic-session.md
           - Философская встреча и чтение: start/programs/formats/philosophy.md
           - Сатсанг и вопросы: start/programs/formats/satsang.md
           - Киртан и совместная практика: start/programs/formats/kirtan.md
-          - Встреча с преподавателем: start/programs/formats/teacher.md
           - Кино или совместный просмотр: start/programs/formats/cinema.md
           - Театр или культурный выход: start/programs/formats/theatre.md
           - Прогулка или поход: start/programs/formats/walk.md

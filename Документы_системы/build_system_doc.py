@@ -368,6 +368,8 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
     first_paragraph = len(doc.paragraphs)
     content = path.read_text(encoding="utf-8-sig")
     content = re.sub(r"\A---\s*\n.*?\n---\s*\n", "", content, count=1, flags=re.S)
+    # Long website prompt previews have a downloadable source in the human guide.
+    content = re.sub(r'<div class="site-only-prompt"[^>]*>.*?</div>', "", content, flags=re.S)
     # Body links in Word open the matching public site page.
     source_url = SITE_ROOT + path.relative_to(DOCS).as_posix()
     def public_link(match):

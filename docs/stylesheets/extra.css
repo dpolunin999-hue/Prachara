@@ -1043,3 +1043,6 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset .program-format-list a {padding-block:.65rem}
 .md-typeset .program-format-list strong {font-size:.86rem}
 @media(max-width:640px){.md-typeset .program-hub > p,.md-typeset .program-guide > p{font-size:.8rem}}
+
+.md-typeset .template-tools .program-prompt-download {display:inline-flex;align-items:center;min-height:44px;padding:.4rem .7rem;border:1px solid #dec7b7;border-radius:.5rem;background:white;color:#a63e13;font-size:.72rem;text-decoration:none}
+.md-typeset .template-tools .program-prompt-download:hover {background:#fff0e3}

@@ -417,6 +417,15 @@
       });
     }
     addCopy(block, () => copyText, block.closest(".program-prompt") ? "Скопировать промпт" : isCarePage ? "Скопировать сообщение" : "Скопировать текст");
+    const download = block.closest(".program-prompt")?.querySelector("[data-prompt-download]");
+    if (download) {
+      const parent = download.parentElement;
+      const toolbar = block.querySelector(".template-tools");
+      const preview = block.closest(".site-only-prompt");
+      if (preview) preview.before(toolbar);
+      toolbar.insertBefore(download, toolbar.querySelector('[role="status"]'));
+      if (parent.tagName === "P" && !parent.textContent.trim()) parent.remove();
+    }
   });
   article.querySelectorAll("details.example").forEach(detail => {
     const title = detail.querySelector(":scope > summary")?.textContent ?? "";
