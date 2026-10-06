@@ -4,8 +4,36 @@
   if (!article) return;
   document.documentElement.classList.add("prachar-js");
   const finder = article.querySelector(".task-finder");
-  const group = finder?.dataset.taskGroup;
-  let activateCarePanel = null;
+  const group = finder?.dataset.taskGroup || article.querySelector(".direction-guide")?.dataset.directionGroup;
+  const isCarePage = Boolean(article.querySelector(".care-hub, .care-guide"));
+  if (article.querySelector(".direction-stages-menu") && location.hash) {
+    const stages = {"direction-minimum":"first-steps", "direction-routine":"routine", "direction-development":"development", "ads-regular":"routine", "secretary-month":"development"};
+    const id = location.hash.slice(1);
+    const stage = stages[id] || (/^direction-step-[1-4]$/.test(id) ? "first-steps" : null);
+    if (stage) {
+      const url = new URL("../" + group + "/" + stage + "/", location.href);
+      if (id.startsWith("direction-step-")) url.hash = id;
+      location.replace(url); return;
+    }
+  }
+  // Old shared care URLs still open the corresponding new instruction page.
+  if (article.querySelector(".care-hub") && location.hash) {
+    let id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch { id = ""; }
+    const routes = {
+      "care-step-9":"application/#care-step-9", "care-app":"application/#care-app",
+      "care-step-10":"chat/#care-step-10", "care-step-11":"routine/#care-step-11",
+      "care-step-12":"tools/#care-step-12", "care-step-13":"tools/#care-step-13", "care-step-14":"tools/#care-step-14",
+      "care-resources":"resources/", "care-materials":"resources/", "person-wrote":"journey/#care-step-1",
+      "care-month":"routine/#care-month", "care-panel-start":"first-steps/", "care-panel-people":"journey/",
+      "care-panel-tools":"tools/", "care-panel-review":"routine/", "direction-minimum":"first-steps/",
+      "direction-step-1":"first-steps/", "direction-step-2":"journey/#care-step-1",
+      "direction-step-3":"journey/#care-step-2", "direction-step-4":"journey/#care-step-4",
+      "direction-routine":"routine/", "direction-development":"routine/#care-month"
+    };
+    const route = routes[id] || (/^care-step-[1-8]$/.test(id) ? "journey/#" + id : null);
+    if (route) { location.replace(new URL("../care/" + route, location.href)); return; }
+  }
 
   function wrapSection(heading, kind = "instruction-section") {
     if (!heading || heading.parentElement !== article) return null;
@@ -43,7 +71,7 @@
       mission.textContent = intro.querySelector("h2")?.nextElementSibling?.textContent || "";
       const begin = document.createElement("a");
       begin.className = "md-button md-button--primary direction-begin";
-      begin.href = "#direction-step-1";
+      begin.href = group === "care" ? "#direction-step-1" : new URL("../" + group + "/first-steps/", location.href).href;
       begin.textContent = "Начать с первого шага →";
       intro.before(brief);
       const focus = document.createElement("aside");
@@ -211,6 +239,11 @@
       collapse.focus({preventScroll:true});
     });
     renderTasks();
+    if (group !== "home") {
+      const searchPanel = document.createElement("details"); searchPanel.className = "direction-search";
+      const summary = document.createElement("summary"); summary.textContent = "Найти действие по слову";
+      finder.before(searchPanel); searchPanel.append(summary, finder);
+    }
   }
 
   const library = article.querySelector(".library-directory");
@@ -269,7 +302,6 @@
     try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
     const target = document.getElementById(id);
     if (!target) return;
-    if (activateCarePanel) activateCarePanel(target);
     for (let parent = target; parent && parent !== article; parent = parent.parentElement) {
       if (parent.tagName === "DETAILS") parent.open = true;
     }
@@ -367,7 +399,7 @@
     if (!code) return;
     block.querySelectorAll(".md-clipboard").forEach(button => {button.hidden = true;});
     const copyText = code.textContent;
-    if (group === "care" && /https?:\/\//.test(copyText)) {
+    if (isCarePage && /https?:\/\//.test(copyText)) {
       // Keep the real URL in the copied message; show a short link in the preview.
       const parts = copyText.split(/(https?:\/\/[^\s<>]+)/g);
       code.replaceChildren();
@@ -379,7 +411,7 @@
         } else code.append(document.createTextNode(part));
       });
     }
-    addCopy(block, () => copyText, group === "care" ? "Скопировать сообщение" : "Скопировать текст");
+    addCopy(block, () => copyText, isCarePage ? "Скопировать сообщение" : "Скопировать текст");
   });
   article.querySelectorAll("details.example").forEach(detail => {
     const title = detail.querySelector(":scope > summary")?.textContent ?? "";
@@ -437,129 +469,24 @@
   });
 
 
-  if (group === "care") {
-    article.classList.add("care-workspace-page");
-    const workspace = document.createElement("section");
-    workspace.className = "care-workspace";
-    const nav = document.createElement("div");
-    nav.className = "care-branch-nav"; nav.setAttribute("role", "tablist");
-    nav.setAttribute("aria-label", "Что нужно сделать в заботе");
-    const definitions = [
-      ["start", "Начать", "Первый запуск заботы", "Четыре действия, чтобы начать сопровождать людей."],
-      ["people", "Сопровождать", "Что происходит с человеком?", "Выберите ситуацию — откроется только нужная инструкция."],
-      ["tools", "Инструменты", "Инструменты заботы", "Приложение, чат, материалы и готовые сообщения."],
-      ["review", "Проверить работу", "Всё ли работает?", "Проверка договорённостей, общения и границ заботы."]
-    ];
-    const panels = new Map(); const tabs = new Map(); const roots = new Map();
-    for (const [key, label, title, description] of definitions) {
-      const tab = document.createElement("button");
-      tab.type = "button"; tab.id = "care-tab-" + key; tab.textContent = label;
-      tab.setAttribute("role", "tab"); tab.setAttribute("aria-controls", "care-panel-" + key);
-      const panel = document.createElement("section");
-      panel.id = "care-panel-" + key; panel.className = "care-panel";
-      panel.setAttribute("role", "tabpanel"); panel.setAttribute("aria-labelledby", tab.id);
-      const h = document.createElement("h2"); h.textContent = title;
-      const p = document.createElement("p"); p.className = "care-panel-intro"; p.textContent = description;
-      const back = document.createElement("button"); back.type = "button";
-      back.className = "care-back"; back.textContent = "← К списку"; back.hidden = true;
-      panel.append(h, p, back); panels.set(key, panel); tabs.set(key, tab); roots.set(key, []);
-      nav.append(tab); workspace.append(panel);
-    }
-    workspace.prepend(nav);
-    article.querySelector(".direction-brief").after(workspace);
-    const minimum = article.querySelector(".direction-start");
-    minimum.querySelector(".direction-stage-nav")?.remove();
-    panels.get("start").append(minimum);
-    const find = document.createElement("details"); find.className = "care-search";
-    const findTitle = document.createElement("summary"); findTitle.textContent = "Найти действие по слову";
-    find.append(findTitle, finder); nav.after(find);
-    function addRoot(key, detail) {
-      if (!detail) return;
-      if (!detail.id) detail.id = "care-item-" + key + "-" + roots.get(key).length;
-      detail.classList.add("care-branch-item"); detail.open = false;
-      roots.get(key).push(detail); panels.get(key).append(detail);
-    }
-    for (let i = 1; i <= 14; i++) addRoot(i <= 8 ? "people" : [9, 10, 12].includes(i) ? "tools" : "review", article.querySelector("#care-step-" + i));
-    article.querySelectorAll(".care-stack > details").forEach(detail => addRoot("people", detail));
-    const headingBy = text => [...article.querySelectorAll(":scope > h2")].find(h => h.textContent.startsWith(text));
-    const resources = wrapSection(headingBy("Полезные ссылки"));
-    if (resources) {
-      resources.id = "care-materials";
-      resources.querySelector("summary h2").firstChild.textContent = "Материалы для отправки ";
-      resources.querySelectorAll("details").forEach(d => {d.open = false;});
-      addRoot("tools", resources);
-    }
-    const formula = wrapSection(headingBy("Итоговая формула")); addRoot("review", formula);
-    const full = wrapSection(headingBy("Полный маршрут заботы")); addRoot("tools", full);
-    const overview = article.querySelector(".instruction-section--overview"); addRoot("people", overview);
-    const oldTitle = headingBy("Подробный путь заботника");
-    if (oldTitle) { oldTitle.hidden = true; panels.get("people").append(oldTitle); }
-    article.querySelector(".care-stack")?.remove();
-    // Show the tools in the order in which a caretaker needs them.
-    for (const id of ["care-step-9", "care-step-10", "care-materials", "care-step-12"]) {
-      const detail = article.querySelector("#" + id); if (detail) panels.get("tools").append(detail);
-    }
-    if (full) panels.get("tools").append(full);
-    const labels = {"care-step-9":"Вести людей в приложении", "care-step-10":"Создать и поддерживать чат", "care-step-12":"Готовые сообщения и передача запроса"};
-    for (const [id, label] of Object.entries(labels)) {
-      const title = article.querySelector("#" + id + " > summary strong"); if (title) title.textContent = label;
-    }
-    let current = {key:"start", leaf:null, scroll:0}; const trail = [];
-    function showState(next, remember = false) {
-      if (remember && (current.key !== next.key || current.leaf !== next.leaf)) trail.push({...current, scroll:window.scrollY});
-      current = {...next};
-      panels.forEach((panel, key) => {
-        panel.hidden = key !== current.key;
-        const tab = tabs.get(key); tab.setAttribute("aria-selected", String(key === current.key));
-        tab.tabIndex = key === current.key ? 0 : -1;
-        const back = panel.querySelector(".care-back"); back.hidden = !current.leaf;
-        back.textContent = trail.length && trail[trail.length - 1].leaf ? "← Назад к предыдущему шагу" : "← К списку";
-        roots.get(key).forEach(detail => {
-          detail.hidden = key === current.key && Boolean(current.leaf) && detail.id !== current.leaf;
-          detail.open = key === current.key && detail.id === current.leaf;
-        });
+  if (isCarePage) {
+    const search = article.querySelector(".care-resource-search input");
+    const topics = [...article.querySelectorAll(".resource-topic")];
+    if (search) search.addEventListener("input", () => {
+      const words = search.value.toLocaleLowerCase("ru").replaceAll("ё", "е").trim().split(/\s+/).filter(Boolean);
+      topics.forEach(topic => {
+        const text = topic.textContent.toLocaleLowerCase("ru").replaceAll("ё", "е");
+        topic.hidden = !words.every(word => text.includes(word));
       });
+      article.querySelector(".care-resource-empty").hidden = topics.some(topic => !topic.hidden);
+    });
+    const from = new URLSearchParams(location.search).get("from");
+    if (article.querySelector(".care-resource-search") && /^care-step-[1-8]$/.test(from || "")) {
+      const names = {"care-step-1":"первый контакт", "care-step-2":"перед встречей", "care-step-3":"первая встреча", "care-step-4":"после первой встречи", "care-step-5":"второй приход", "care-step-6":"перерыв", "care-step-7":"регулярная практика", "care-step-8":"углубление практики"};
+      const back = article.querySelector(".care-return");
+      back.href = new URL("../journey/#" + from, location.href).href;
+      back.textContent = "← К шагу: " + names[from];
     }
-    activateCarePanel = target => {
-      const panel = target.closest(".care-panel");
-      if (!panel) return;
-      const key = [...panels].find(([, value]) => value === panel)[0];
-      const root = target.closest(".care-branch-item");
-      showState({key, leaf:root?.id ?? null}, true);
-    };
-    tabs.forEach((tab, key) => tab.addEventListener("click", () => {
-      trail.length = 0; showState({key, leaf:null});
-      history.replaceState(null, "", "#care-panel-" + key);
-      workspace.scrollIntoView({block:"start"});
-    }));
-    nav.addEventListener("keydown", event => {
-      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
-      if (!keys.includes(event.key)) return;
-      event.preventDefault(); const buttons = [...tabs.values()]; let i = buttons.indexOf(document.activeElement);
-      i = event.key === "Home" ? 0 : event.key === "End" ? buttons.length - 1 : (i + (event.key === "ArrowRight" ? 1 : -1) + buttons.length) % buttons.length;
-      buttons[i].click(); buttons[i].focus({preventScroll:true});
-    });
-    panels.forEach((panel, key) => {
-      panel.querySelector(".care-back").addEventListener("click", () => {
-        const old = trail.pop() || {key, leaf:null};
-        showState(old); history.replaceState(null, "", "#" + (old.leaf || "care-panel-" + old.key));
-        if (Number.isFinite(old.scroll)) window.scrollTo({top:old.scroll, behavior:"instant"});
-        else workspace.scrollIntoView({block:"start"});
-        (old.leaf ? document.getElementById(old.leaf).querySelector("summary") : tabs.get(old.key)).focus({preventScroll:true});
-      });
-      roots.get(key).forEach(detail => detail.addEventListener("toggle", () => {
-        if (detail.open && (current.key !== key || current.leaf !== detail.id)) showState({key, leaf:detail.id}, true);
-        else if (!detail.open && current.key === key && current.leaf === detail.id) showState({key, leaf:null});
-      }));
-    });
-    workspace.querySelectorAll("a[href]").forEach(link => {
-      const url = new URL(link.href, location.href);
-      if (url.origin === location.origin && url.pathname !== location.pathname) {
-        link.target = "_blank"; link.rel = "noopener";
-        link.title = "Открыть подробный материал в новой вкладке";
-      }
-    });
-    showState(current); updateOffset();
   }
 
   if (article.querySelector(".direction-focus")) {

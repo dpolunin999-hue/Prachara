@@ -134,91 +134,91 @@ extra:
     - group: care
       title: "Ответить человеку впервые"
       description: "Порядок первого контакта и готовые сообщения"
-      target: "start/caretaker/#care-step-1"
+      target: "start/care/journey/#care-step-1"
       keywords: "новичок первый ответ сообщение написал контакт"
       featured: true
     - group: care
       title: "Подготовить человека к встрече"
       description: "Запись, дорога, формат и напоминание"
-      target: "start/caretaker/#care-step-2"
+      target: "start/care/journey/#care-step-2"
       keywords: "приглашение записать напомнить запись адрес"
       featured: false
     - group: care
       title: "Встретить новичка"
       description: "Помочь освоиться и узнать впечатления"
-      target: "start/caretaker/#care-step-3"
+      target: "start/care/journey/#care-step-3"
       keywords: "первый пришел новичок встретить"
       featured: false
     - group: care
       title: "Написать после встречи"
       description: "Впечатления, польза и следующий шаг"
-      target: "start/caretaker/#care-step-4"
+      target: "start/care/journey/#care-step-4"
       keywords: "сообщение после встречи обратная связь впечатления"
       featured: false
     - group: care
       title: "Поддержать повторный приход"
       description: "Контакт и самостоятельная практика"
-      target: "start/caretaker/#care-step-5"
+      target: "start/care/journey/#care-step-5"
       keywords: "продолжает повторный приход обучение"
       featured: false
     - group: care
       title: "Связаться с тем, кто пропал"
       description: "Ненавязчивые сообщения без давления"
-      target: "start/caretaker/#care-step-6"
+      target: "start/care/journey/#care-step-6"
       keywords: "не пришел пропал исчез не отвечает занят"
       featured: false
     - group: care
       title: "Поддержать регулярную практику"
       description: "Ретриты, сообщество и служение"
-      target: "start/caretaker/#care-step-7"
+      target: "start/care/journey/#care-step-7"
       keywords: "регулярный практика ретрит служение"
       featured: false
     - group: care
       title: "Передать на индивидуальное обучение"
       description: "Объяснить шаг и организовать передачу"
-      target: "start/caretaker/#care-step-8"
+      target: "start/care/journey/#care-step-8"
       keywords: "личный урок инициация преподаватель обучение"
       featured: false
     - group: care
       title: "Записать этап в приложении"
       description: "Запрос, ответственный и следующий контакт"
-      target: "start/caretaker/#care-step-9"
+      target: "start/care/application/#care-step-9"
       keywords: "приложение учет crm карточка садху статус этап"
       featured: false
     - group: care
       title: "Создать и поддерживать чат"
       description: "Правила, опросы и полезные материалы"
-      target: "start/caretaker/#care-step-10"
+      target: "start/care/chat/#care-step-10"
       keywords: "чат сообщество соцсеть телеграм опросы группа"
       featured: false
     - group: care
       title: "Проверить заботу за неделю"
       description: "Кому нужен ответ или следующий шаг"
-      target: "start/caretaker/#care-step-11"
+      target: "start/care/routine/#care-step-11"
       keywords: "еженедельный проверка список контакты"
       featured: false
     - group: care
       title: "Передать запрос или попросить отзыв"
       description: "Сообщения и согласие на публикацию"
-      target: "start/caretaker/#care-step-12"
+      target: "start/care/tools/#care-step-12"
       keywords: "передача отзыв помощь запрос"
       featured: false
     - group: care
       title: "Проверить границы общения"
       description: "Забота без перегрузки и давления"
-      target: "start/caretaker/#care-step-13"
+      target: "start/care/tools/#care-step-13"
       keywords: "границы спам давление отказ"
       featured: false
     - group: care
       title: "Проверить сообщение"
       description: "Личный контекст, польза и свобода выбора"
-      target: "start/caretaker/#care-step-14"
+      target: "start/care/tools/#care-step-14"
       keywords: "формула сообщение проверить шаблон"
       featured: false
     - group: care
       title: "Отправить курс или полезную подборку"
       description: "КДИ, медитация, асаны, питание, Яма–Нияма и чакры"
-      target: "start/caretaker/#care-resources"
+      target: "start/care/resources/"
       keywords: "ссылки материал курс кди асаны питание рецепты чакры принципы яма нияма видео youtube rutube vk"
       featured: true
     - group: secretary
@@ -269,17 +269,34 @@ nav:
       - Инфраструктура: 03_Юнит/Инфраструктура_юнита.md
       - Формирование команды: 03_Юнит/Формирование_команды.md
   - Роли:
+      - Секретарь — первые действия: start/secretary/first-steps.md
+      - Секретарь — регулярная работа: start/secretary/routine.md
+      - Секретарь — развитие: start/secretary/development.md
       - Секретарь: 04_Роли/Секретарь_Прачары.md
       - Заботник: 04_Роли/Заботник.md
       - Контент-мейкер: 04_Роли/Контент_мейкер.md
   - Привлечение:
+      - Реклама — первые действия: start/ads/first-steps.md
+      - Реклама — регулярная работа: start/ads/routine.md
+      - Реклама — развитие: start/ads/development.md
       - Система привлечения: 05_Привлечение/Система_привлечения.md
       - Правила общения с аудиторией: 05_Привлечение/Правила_общения_с_аудиторией.md
   - Первый опыт: 06_Первый_опыт/Система_первого_опыта.md
   - Забота:
+      - С чего начать: start/care/first-steps.md
+      - Ведение человека: start/care/journey.md
+      - Инструменты: start/care/tools.md
+      - Приложение: start/care/application.md
+      - Чат сообщества: start/care/chat.md
+      - Полезные материалы: start/care/resources.md
+      - Статусы и сообщения: start/care/statuses.md
+      - Регулярная работа: start/care/routine.md
       - Система заботы: 07_Забота/Система_заботы.md
       - Чек-лист новичка: 07_Забота/Чеклист_новичка.md
   - Программы:
+      - Программы — первые действия: start/programs/first-steps.md
+      - Программы — регулярная работа: start/programs/routine.md
+      - Программы — развитие: start/programs/development.md
       - Каталог программ: 08_Программы/Каталог_программ.md
       - Стандарт коллективной практики: 08_Программы/Стандарт_коллективной_практики.md
   - Обучение прачарщиков: 09_Обучение_прачарщиков/Система_обучения.md

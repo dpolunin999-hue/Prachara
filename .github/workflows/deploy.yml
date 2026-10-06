@@ -35,6 +35,9 @@ jobs:
       - name: Проверить JavaScript приложения
         run: node --check app/app.js && node --check app/supabase-adapter.js && node --check app/sw.js && node --check docs/javascripts/navigation.js
 
+      - name: Проверить статусы и сообщения методички
+        run: node scripts/sync-care-reference.cjs --check
+
       # Проверка ссылок и оформления. Показывает предупреждения в журнале,
       # но НЕ блокирует публикацию — сайт обновится в любом случае.
       - name: Проверить материалы (не блокирует публикацию)

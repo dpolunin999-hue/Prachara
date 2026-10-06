@@ -999,3 +999,30 @@ html, body { overflow-x: clip; overflow-y: visible; }
  .md-typeset .direction-scope {font-size:.7rem}
 }
 @media print {.md-typeset .direction-focus,.md-typeset .care-branch-nav {position:static}}
+
+/* Separate care pages: a small home and progressively disclosed actions. */
+.md-typeset .care-hub, .md-typeset .care-guide {max-width:48rem;margin-top:.8rem}
+.md-typeset .care-hub > p, .md-typeset .care-guide > p {font-size:.85rem;line-height:1.6}
+.md-typeset .care-page-list ul {list-style:none;margin:.8rem 0 1rem;padding:0}
+.md-typeset .care-page-list li {margin:0;border-bottom:1px solid #eaded4;padding:0}
+.md-typeset .care-page-list a {display:block;padding:.9rem 1.6rem .9rem .15rem;font-size:.83rem;line-height:1.55;position:relative;color:#786252}
+.md-typeset .care-page-list a::after {content:"›";position:absolute;right:.4rem;top:.9rem;color:#bc5a23;font-size:1.1rem}
+.md-typeset .care-page-list a:hover {background:#fff5eb;color:#a7440c}
+.md-typeset .care-page-list strong {display:block;color:#392e27;font-size:.93rem}
+.md-typeset .care-return {display:inline-flex;align-items:center;min-height:44px;font-size:.76rem;color:#a7440c}
+.md-typeset .care-action {margin:.6rem 0;box-shadow:none;border-radius:.65rem}
+.md-typeset .care-action > summary {font-size:.85rem;line-height:1.45;min-height:52px;padding-right:2rem}
+.md-typeset .care-action[open] > summary {color:#a7440c}
+.md-typeset .care-guide .highlight pre code {white-space:pre-wrap;overflow-wrap:anywhere}
+.md-typeset .care-guide code a {font-family:var(--md-text-font-family);font-size:.75rem;white-space:normal}
+.md-typeset .care-resource-search {display:block;margin:1rem 0;font-size:.74rem;color:#786252}
+.md-typeset .care-resource-search input {display:block;width:100%;min-height:44px;border:1px solid #dfcbbb;border-radius:.5rem;background:#fff;padding:.55rem .7rem;font:inherit;color:#392e27;margin-top:.3rem}
+.md-typeset .care-guide [hidden] {display:none!important}
+.md-typeset .care-guide .resource-topic {box-shadow:none;margin:.55rem 0}
+.md-typeset .care-guide .resource-topic > summary {min-height:48px;font-size:.84rem}
+@media(max-width:640px){.md-typeset .care-page-list a{font-size:.76rem;padding-block:.75rem}.md-typeset .care-page-list strong{font-size:.86rem}.md-typeset .care-guide > p,.md-typeset .care-hub > p{font-size:.8rem}}
+
+.md-typeset .care-guide details > summary {padding-left:.85rem;padding-right:2rem}
+.md-typeset .care-guide details > summary::before {display:none}
+.md-typeset .care-guide details > summary::after {position:absolute;top:50%;right:.85rem;width:.4rem;height:.4rem;margin-top:-.25rem;border-right:2px solid #b66c40;border-bottom:2px solid #b66c40;background:none;mask:none;-webkit-mask:none;transform:rotate(45deg);content:""}
+.md-typeset .care-guide details[open] > summary::after {margin-top:-.05rem;transform:rotate(225deg)}

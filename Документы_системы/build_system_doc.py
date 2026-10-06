@@ -5,7 +5,7 @@ import re
 import sys
 from datetime import date
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, urljoin, urlsplit, urlunsplit
 
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
@@ -157,7 +157,7 @@ def add_inline(paragraph, text: str, base_bold=False, base_italic=False) -> None
         else:
             link = re.match(r"\[([^\]]+)\]\(([^)]+)\)", token)
             if link:
-                add_hyperlink(paragraph, link.group(1), link.group(2))
+                add_hyperlink(paragraph, link.group(1).replace("**", ""), link.group(2))
         position = match.end()
     if position < len(text):
         run = paragraph.add_run(text[position:])
@@ -365,8 +365,17 @@ def is_separator(row):
 
 
 def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
+    first_paragraph = len(doc.paragraphs)
     content = path.read_text(encoding="utf-8-sig")
     content = re.sub(r"\A---\s*\n.*?\n---\s*\n", "", content, count=1, flags=re.S)
+    # Body links in Word open the matching public site page.
+    source_url = SITE_ROOT + path.relative_to(DOCS).as_posix()
+    def public_link(match):
+        target = urljoin(source_url, match.group(2))
+        parts = urlsplit(target)
+        target_path = parts.path[:-3] + "/" if parts.path.endswith(".md") else parts.path
+        return match.group(1) + urlunsplit((parts.scheme, parts.netloc, target_path, parts.query, parts.fragment)) + match.group(3)
+    content = re.sub(r"(\]\()([^\s)]+)(\))", public_link, content)
     lines = content.splitlines()
     index = 0
     skipped_h1 = False
@@ -391,8 +400,12 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
                 else:
                     for code_line in code_lines:
                         paragraph = doc.add_paragraph(style="Code Text")
-                        run = paragraph.add_run(code_line)
-                        set_font(run, name="Consolas", size=8.5)
+                        for part in re.split(r"([\U0001F300-\U0001FAFF\u2600-\u27BF\uFE0F]+)", code_line):
+                            if not part:
+                                continue
+                            run = paragraph.add_run(part)
+                            emoji = bool(re.fullmatch(r"[\U0001F300-\U0001FAFF\u2600-\u27BF\uFE0F]+", part))
+                            set_font(run, name="Segoe UI Emoji" if emoji else "Consolas", size=8.5)
                 in_code = False
             index += 1
             continue
@@ -496,6 +509,12 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
             closing_paragraph.paragraph_format.space_after = Pt(0)
             closing_paragraph.paragraph_format.line_spacing = 1.0
 
+    if path.name == "Контент_мейкер.md":
+        for role_paragraph in doc.paragraphs[first_paragraph:]:
+            role_paragraph.paragraph_format.space_after = Pt(2)
+            role_paragraph.paragraph_format.line_spacing = 1.05
+    if doc.paragraphs:
+        doc.paragraphs[-1].paragraph_format.keep_with_next = True
     paragraph = doc.add_paragraph()
     paragraph.paragraph_format.space_before = Pt(6)
     relative = str(path.relative_to(DOCS)).replace("\\", "/")
