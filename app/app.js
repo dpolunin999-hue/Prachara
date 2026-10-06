@@ -3,14 +3,14 @@ const practiceLabels={unknown:"Пока неизвестно",none:"Не пра�
 const journeyStages=[
  {id:"chat",title:"Приглашение в чат",wait:"Доступно после второго визита",steps:[{key:"chat_invited",label:"Пригласили",next:"пригласить в чат"},{key:"chat_joined",label:"Добавлен",next:"добавить в чат"}]},
  {id:"book",title:"Книга",steps:[{key:"book_acquired",label:"Приобрёл книгу",next:"предложить книгу"}]},
- {id:"basic",title:"Базовый курс",steps:[{key:"basic_started",label:"Начал",next:"предложить базовый курс"},{key:"basic_completed",label:"Завершил",next:"помочь завершить базовый курс"}]},
- {id:"kdi",title:"К-Д-И",steps:[{key:"kdi_started",label:"Начал",next:"предложить К-Д-И"},{key:"kdi_completed",label:"Завершил",next:"помочь завершить К-Д-И"}]},
+ {id:"basic",title:"Базовый курс",steps:[{key:"basic_offered",label:"Предложили",next:"предложить базовый курс"},{key:"basic_started",label:"Начал",next:"помочь начать базовый курс"},{key:"basic_completed",label:"Завершил",next:"помочь завершить базовый курс"}]},
+ {id:"kdi",title:"KDI",steps:[{key:"kdi_offered",label:"Предложили",next:"предложить KDI"},{key:"kdi_started",label:"Начал",next:"помочь начать KDI"},{key:"kdi_completed",label:"Завершил",next:"помочь завершить KDI"}]},
  {id:"practice",title:"Регулярная практика",steps:[{key:"twice_daily",label:"Медитирует дважды в день",auto:true}]},
  {id:"curator",title:"Куратор",steps:[{key:"curator_offered",label:"Предложили",next:"предложить куратора"},{key:"curator_assigned",label:"Назначен",next:"назначить куратора"}]},
  {id:"acharya",title:"Знакомство с ачарьей",steps:[{key:"acharya_offered",label:"Предложили",next:"предложить знакомство с ачарьей"},{key:"acharya_met",label:"Познакомился",next:"организовать знакомство с ачарьей"}]},
  {id:"retreat",title:"Ретрит",steps:[{key:"retreat_invited",label:"Пригласили",next:"пригласить на ретрит"},{key:"retreat_attended",label:"Был на ретрите",next:"поддержать участие в ретрите"}]},
- {id:"mantra",title:"Получил мантру",steps:[{key:"mantra_received",label:"Получил",next:"обсудить получение мантры"}]},
- {id:"initiation",title:"Получил инициацию",important:true,steps:[{key:"initiation_received",label:"Получил",next:"поддержать путь к инициации"}]}
+ {id:"mantra",title:"Мантра",steps:[{key:"mantra_offered",label:"Предложили",next:"предложить получение мантры"},{key:"mantra_received",label:"Получил",next:"помочь получить мантру"}]},
+ {id:"initiation",title:"Инициация",important:true,steps:[{key:"initiation_offered",label:"Предложили",next:"предложить инициацию"},{key:"initiation_received",label:"Получил",next:"поддержать путь к инициации"}]}
 ];
 const journeyTotal=journeyStages.reduce((sum,stage)=>sum+stage.steps.length,0);
 const achievementDone=(p,key)=>Boolean(p.achievements?.[key]);
