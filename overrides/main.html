@@ -23,6 +23,8 @@
   <a href="{{ '' | url }}">Главная</a><span aria-hidden="true">/</span>
   {% if page.file.src_uri.startswith('start/care/') %}
   <a href="{{ 'start/caretaker/' | url }}">Забота</a><span aria-hidden="true">/</span>
+  {% elif page.file.src_uri.startswith('start/ads/') %}
+  <a href="{{ 'start/content/' | url }}">Реклама</a><span aria-hidden="true">/</span>
   {% elif page.file.src_uri.startswith('start/programs/') %}
   <a href="{{ 'start/programs/' | url }}">Программы</a><span aria-hidden="true">/</span>
   {% if page.file.src_uri.startswith('start/programs/formats/') %}
@@ -44,7 +46,7 @@
 {% endif %}
 {% endif %}
 {{ super() }}
-{% if page and (page.is_homepage or page.file.src_uri in ['start/content.md','start/secretary.md']) %}
+{% if page and (page.is_homepage or page.file.src_uri in ['start/secretary.md']) %}
 {% include "partials/task-finder.html" %}
 {% endif %}
 {% if page and page.file.src_uri == 'start/materials.md' %}

@@ -1046,3 +1046,15 @@ html, body { overflow-x: clip; overflow-y: visible; }
 
 .md-typeset .template-tools .program-prompt-download {display:inline-flex;align-items:center;min-height:44px;padding:.4rem .7rem;border:1px solid #dec7b7;border-radius:.5rem;background:white;color:#a63e13;font-size:.72rem;text-decoration:none}
 .md-typeset .template-tools .program-prompt-download:hover {background:#fff0e3}
+
+/* Ads: separate methods, community content, hypotheses and measurement. */
+.md-typeset .ads-hub,.md-typeset .ads-guide {max-width:48rem;margin-top:.8rem}
+.md-typeset .ads-hub > p,.md-typeset .ads-guide > p {font-size:.85rem;line-height:1.6}
+.md-typeset .ads-action {margin:.6rem 0;box-shadow:none;border-radius:.65rem}
+.md-typeset .ads-guide details > summary {font-size:.84rem;line-height:1.45;min-height:48px;padding-left:.85rem;padding-right:2rem}
+.md-typeset .ads-guide details > summary::before {display:none}
+.md-typeset .ads-guide details > summary::after {position:absolute;top:50%;right:.85rem;width:.4rem;height:.4rem;margin-top:-.25rem;border-right:2px solid #b66c40;border-bottom:2px solid #b66c40;background:none;mask:none;-webkit-mask:none;transform:rotate(45deg);content:""}
+.md-typeset .ads-guide details[open] > summary::after {margin-top:-.05rem;transform:rotate(225deg)}
+.md-typeset .ads-guide .highlight pre code {white-space:pre-wrap;overflow-wrap:anywhere}
+.md-typeset .ads-guide [hidden] {display:none!important}
+@media(max-width:640px){.md-typeset .ads-hub > p,.md-typeset .ads-guide > p{font-size:.8rem}}

@@ -61,32 +61,32 @@ extra:
   task_routes:
     - group: ads
       title: "Создать объявление на Avito"
-      description: "Инструкция, промпт и переход к публикации"
-      target: "start/content/#avito-tool"
+      description: "Первый шаг, заготовка и переход к публикации"
+      target: "start/ads/avito/"
       keywords: "авито объявление реклама привлечь публикация"
       featured: true
     - group: ads
       title: "Оформить личный бренд"
       description: "Доверие к ведущему и понятный образ"
-      target: "start/content/#personal-brand"
+      target: "start/ads/personal-brand/"
       keywords: "ведущий личный бренд доверие"
       featured: false
     - group: ads
       title: "Упаковать социальные сети"
       description: "Страница сообщества и закреплённая публикация"
-      target: "start/content/#social-packaging"
+      target: "start/ads/landing/"
       keywords: "соцсети вк вконтакте группа упаковка профиль"
       featured: false
     - group: ads
       title: "Сделать сайт заметнее"
       description: "SEO, гео и информация о городе"
-      target: "start/content/#site-visibility"
+      target: "start/ads/site/"
       keywords: "сайт seo гео geo поиск город"
       featured: false
     - group: ads
       title: "Подготовить и раздать визитки"
       description: "Текст, порядок выдачи и учёт"
-      target: "start/content/#business-cards"
+      target: "start/ads/offline/#business-cards"
       keywords: "визитка офлайн раздать промпт"
       featured: false
     - group: programs
@@ -279,6 +279,25 @@ nav:
       - Реклама — первые действия: start/ads/first-steps.md
       - Реклама — регулярная работа: start/ads/routine.md
       - Реклама — развитие: start/ads/development.md
+      - Обязанности рекламы: start/ads/responsibilities.md
+      - Методы привлечения: start/ads/methods.md
+      - Контент и SMM: start/ads/content.md
+      - Гипотезы: start/ads/hypotheses.md
+      - Учёт и цели рекламы: start/ads/metrics.md
+      - Понятные страницы юнита: start/ads/landing.md
+      - Система Сито: start/ads/sito.md
+      - Avito — первый шаг: start/ads/avito.md
+      - Группы города: start/ads/city-groups.md
+      - Партнёрства: start/ads/partnerships.md
+      - Передача контакта: start/ads/handover.md
+      - Парсинг для Сита: start/ads/parsing.md
+      - Личный бренд: start/ads/personal-brand.md
+      - Монтаж видео: start/ads/editing.md
+      - Платные методы: start/ads/paid.md
+      - Таргетированная реклама: start/ads/targeting.md
+      - Контекстная реклама: start/ads/context.md
+      - Офлайн и визитки: start/ads/offline.md
+      - Сайт и поиск: start/ads/site.md
       - Система привлечения: 05_Привлечение/Система_привлечения.md
       - Правила общения с аудиторией: 05_Привлечение/Правила_общения_с_аудиторией.md
   - Первый опыт: 06_Первый_опыт/Система_первого_опыта.md

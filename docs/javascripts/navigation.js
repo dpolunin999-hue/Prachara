@@ -16,6 +16,12 @@
       location.replace(url); return;
     }
   }
+  if (article.querySelector(".ads-hub") && location.hash) {
+    let id; try { id = decodeURIComponent(location.hash.slice(1)); } catch { id = ""; }
+    const routes = {"avito-tool":"avito/", "personal-brand":"personal-brand/", "social-packaging":"landing/", "site-visibility":"site/", "business-cards":"offline/#business-cards", "event-announcement":"../programs/announcement/", "poster":"../programs/announcement/", "ad-channels":"methods/", "ad-tools":"methods/", "ad-landing-pages":"landing/", "ad-free-methods":"methods/#free-methods", "ad-paid-methods":"paid/", "city-groups":"city-groups/", "ad-experiment":"hypotheses/#ad-experiment", "ad-parsing":"parsing/", "ads-regular":"routine/", "direction-minimum":"first-steps/", "direction-routine":"routine/", "direction-development":"development/"};
+    const route = routes[id] || (/^direction-step-[1-4]$/.test(id) ? "first-steps/" : null);
+    if (route) { location.replace(new URL("../ads/" + route, location.href)); return; }
+  }
   if (article.querySelector(".program-hub") && location.hash) {
     let id; try { id = decodeURIComponent(location.hash.slice(1)); } catch { id = ""; }
     const routes = {"program-types":"formats/", "program-preparation":"first-steps/", "program-rhythm":"routine/#program-rhythm", "program-month":"routine/#program-month", "care-during-program":"hospitality/", "small-talk":"hospitality/", "interactives":"hospitality/#interactives", "program-questionnaire":"quality/#review-material", "direction-minimum":"first-steps/", "direction-routine":"routine/", "direction-development":"development/", "direction-step-1":"first-steps/", "direction-step-2":"first-steps/#program-preparation", "direction-step-3":"first-steps/#expected-attendance", "direction-step-4":"first-steps/#attendance-complete"};
@@ -416,7 +422,7 @@
         } else code.append(document.createTextNode(part));
       });
     }
-    addCopy(block, () => copyText, block.closest(".program-prompt") ? "Скопировать промпт" : isCarePage ? "Скопировать сообщение" : "Скопировать текст");
+    addCopy(block, () => copyText, block.closest(".program-prompt") ? "Скопировать промпт" : block.closest(".ads-template") ? "Скопировать заготовку" : block.closest(".ads-message") ? "Скопировать сообщение" : isCarePage ? "Скопировать сообщение" : "Скопировать текст");
     const download = block.closest(".program-prompt")?.querySelector("[data-prompt-download]");
     if (download) {
       const parent = download.parentElement;
