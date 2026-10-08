@@ -66,6 +66,12 @@ extra:
       keywords: "авито объявление реклама привлечь публикация"
       featured: true
     - group: ads
+      title: "Собрать контент на встрече"
+      description: "Фото, видео и передача материалов для соцсетей"
+      target: "start/ads/capture/"
+      keywords: "контент съемка съёмка фото видео лекция smm соцсети"
+      featured: false
+    - group: ads
       title: "Оформить личный бренд"
       description: "Доверие к ведущему и понятный образ"
       target: "start/ads/personal-brand/"
@@ -282,6 +288,7 @@ nav:
       - Обязанности рекламы: start/ads/responsibilities.md
       - Методы привлечения: start/ads/methods.md
       - Контент и SMM: start/ads/content.md
+      - Сбор контента на встрече: start/ads/capture.md
       - Гипотезы: start/ads/hypotheses.md
       - Учёт и цели рекламы: start/ads/metrics.md
       - Понятные страницы юнита: start/ads/landing.md
