@@ -526,6 +526,59 @@
     }
   }
 
+  // Keep the ordinary Sito script visible; the optional tool opens separately.
+  const sitoLaunch = article.querySelector(".sito-script-launch");
+  if (sitoLaunch && typeof HTMLDialogElement !== "undefined") {
+    const dialog = document.createElement("dialog");
+    dialog.className = "sito-dialog";
+    dialog.id = "sito-script-dialog";
+    dialog.setAttribute("aria-labelledby", "sito-dialog-title");
+    const header = document.createElement("div");
+    header.className = "sito-dialog__header";
+    const title = document.createElement("strong");
+    title.id = "sito-dialog-title";
+    title.textContent = "Интерактивный скрипт Сито";
+    const close = document.createElement("button");
+    close.type = "button";
+    close.textContent = "Закрыть";
+    close.autofocus = true;
+    close.setAttribute("aria-label", "Закрыть интерактивный скрипт");
+    const frame = document.createElement("iframe");
+    frame.title = "Интерактивный сценарий общения Сито";
+    // Keyboard events in the embedded document do not reach the parent dialog.
+    frame.addEventListener("load", () => {
+      try {
+        frame.contentDocument?.addEventListener("keydown", event => {
+          if (event.key === "Escape" && dialog.open) {
+            event.preventDefault();
+            dialog.close();
+          }
+        });
+      } catch { /* The close button remains available if the frame changes origin. */ }
+    });
+    header.append(title, close);
+    dialog.append(header, frame);
+    document.body.append(dialog);
+    sitoLaunch.setAttribute("aria-controls", dialog.id);
+    sitoLaunch.addEventListener("click", event => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (typeof dialog.showModal !== "function") return;
+      event.preventDefault();
+      if (!frame.hasAttribute("src")) frame.src = sitoLaunch.href;
+      dialog.showModal();
+      document.documentElement.classList.add("sito-modal-open");
+    });
+    close.addEventListener("click", () => dialog.close());
+    dialog.addEventListener("close", () => {
+      document.documentElement.classList.remove("sito-modal-open");
+      sitoLaunch.focus({preventScroll:true});
+    });
+    dialog.addEventListener("click", event => {
+      const rect = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dialog.close();
+    });
+  }
+
   if (article.querySelector(".direction-focus")) {
     const resize = new ResizeObserver(updateOffset);
     resize.observe(article.querySelector(".direction-focus"));
