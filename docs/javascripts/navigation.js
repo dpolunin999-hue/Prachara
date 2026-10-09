@@ -394,7 +394,7 @@
         status.textContent = "Скопировано";
         setTimeout(() => {status.textContent = "";}, 2500);
       } catch {
-        const code = container.querySelector("code");
+        const code = container.querySelector("code") || (container.matches("blockquote") ? container.querySelector("p") : null);
         const selection = getSelection();
         if (code && selection) {
           const range = document.createRange();
@@ -432,6 +432,13 @@
       toolbar.insertBefore(download, toolbar.querySelector('[role="status"]'));
       if (parent.tagName === "P" && !parent.textContent.trim()) parent.remove();
     }
+  });
+  article.querySelectorAll(".sito-script-step blockquote").forEach(block => {
+    const message = block.cloneNode(true);
+    message.querySelectorAll("br").forEach(br => br.replaceWith("\n"));
+    const copyText = message.textContent.replace(/\n[ \t]*\n/g, "\n").trim();
+    addCopy(block, () => copyText, "Скопировать реплику");
+    block.append(block.querySelector(".template-tools"));
   });
   article.querySelectorAll("details.example").forEach(detail => {
     const title = detail.querySelector(":scope > summary")?.textContent ?? "";
@@ -527,7 +534,9 @@
   }
 
   // Keep the ordinary Sito script visible; the optional tool opens separately.
-  const sitoLaunch = article.querySelector(".sito-script-launch");
+  const sitoLinks = article.querySelectorAll(".sito-script-launch, .sito-inline-tool");
+  const sitoLaunch = sitoLinks[0];
+  let sitoReturnTo = sitoLaunch;
   if (sitoLaunch && typeof HTMLDialogElement !== "undefined") {
     const dialog = document.createElement("dialog");
     dialog.className = "sito-dialog";
@@ -559,19 +568,22 @@
     header.append(title, close);
     dialog.append(header, frame);
     document.body.append(dialog);
-    sitoLaunch.setAttribute("aria-controls", dialog.id);
-    sitoLaunch.addEventListener("click", event => {
+    sitoLinks.forEach(link => {
+      link.setAttribute("aria-controls", dialog.id);
+      link.addEventListener("click", event => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       if (typeof dialog.showModal !== "function") return;
       event.preventDefault();
-      if (!frame.hasAttribute("src")) frame.src = sitoLaunch.href;
+      sitoReturnTo = link;
+      if (!frame.hasAttribute("src")) frame.src = link.href;
       dialog.showModal();
       document.documentElement.classList.add("sito-modal-open");
+      });
     });
     close.addEventListener("click", () => dialog.close());
     dialog.addEventListener("close", () => {
       document.documentElement.classList.remove("sito-modal-open");
-      sitoLaunch.focus({preventScroll:true});
+      sitoReturnTo.focus({preventScroll:true});
     });
     dialog.addEventListener("click", event => {
       const rect = dialog.getBoundingClientRect();

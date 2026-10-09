@@ -1059,7 +1059,7 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset .ads-guide [hidden] {display:none!important}
 @media(max-width:640px){.md-typeset .ads-hub > p,.md-typeset .ads-guide > p{font-size:.8rem}}
 
-/* Sito: readable script first, with an optional interactive window. */
+/* Sito: method, expandable script and optional interactive window. */
 .md-typeset .sito-script-layout {display:grid;grid-template-columns:minmax(0,1fr) 12rem;gap:1.5rem;align-items:start}
 .md-typeset .sito-script-list {grid-column:1;grid-row:1;min-width:0}
 .md-typeset .sito-script-list > h2:first-child {margin-top:0}
@@ -1067,9 +1067,9 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset #sito-script-aside p {margin:.65rem 0 0}
 .md-typeset #sito-script-aside p:first-child {margin:0}
 .md-typeset .sito-script-launch {display:block;text-align:center;font-size:.76rem;line-height:1.4;padding:.65rem .6rem;min-height:44px;white-space:normal}
-.md-typeset .sito-script-step {padding:.25rem 0 .7rem;margin:.8rem 0 1rem;border-bottom:1px solid #eaded4}
-.md-typeset .sito-script-step h4 {font-size:.9rem;margin:.45rem 0 .6rem}
-.md-typeset .sito-script-step > p {font-size:.76rem;line-height:1.65;color:#756b63}
+.md-typeset .sito-script-step {padding:.15rem 0 .45rem;margin:.55rem 0 .7rem;border-bottom:1px solid #eaded4}
+.md-typeset .sito-script-step h4 {font-size:.8rem;margin:.35rem 0 .45rem}
+.md-typeset .sito-script-step > p {font-size:.68rem;line-height:1.5;color:#756b63}
 .md-typeset .sito-script-step blockquote {border-left:3px solid #e68a50;border-radius:0 .4rem .4rem 0;background:#fff6ed;color:#3d332c;padding:.65rem .8rem;margin:.65rem 0;overflow-wrap:anywhere}
 .md-typeset .sito-script-step blockquote p {margin:.1rem 0;font-size:.82rem;line-height:1.65}
 .sito-dialog {width:min(1240px,96vw);height:92vh;height:92dvh;max-width:96vw;max-height:96dvh;margin:auto;padding:0;border:1px solid #d9c7b8;border-radius:12px;background:#f5f4ed;color:#392e27;box-shadow:0 18px 70px #0005;font:16px/1.5 system-ui,sans-serif;overflow:hidden}
@@ -1082,3 +1082,13 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .sito-modal-open {overflow:hidden}
 @media(max-width:900px){.md-typeset .sito-script-layout{grid-template-columns:1fr;gap:1rem}.md-typeset #sito-script-aside{grid-column:1;grid-row:1;position:static}.md-typeset .sito-script-list{grid-column:1;grid-row:2}.md-typeset .sito-script-launch{width:fit-content}.sito-dialog{width:98vw;max-width:98vw;height:96vh;height:96dvh;max-height:98dvh}.sito-dialog__header{padding:8px 12px}.sito-dialog__header strong{font-size:14px}}
 @media print{.md-typeset .sito-script-layout{display:block}#sito-script-aside,.sito-dialog{display:none!important}.md-typeset .sito-script-step{break-inside:avoid}}
+
+.md-typeset .sito-section > summary {font-weight:650}
+.md-typeset .sito-section > ol {font-size:.77rem;line-height:1.65}
+.md-typeset .sito-section > p {font-size:.76rem;line-height:1.6}
+.md-typeset .sito-section h3 {font-size:.86rem;margin:1rem 0 .4rem}
+.md-typeset .sito-script-step .template-tools {justify-content:flex-end;gap:.45rem;margin:.4rem 0 0;padding:0}
+.md-typeset .sito-script-step .template-copy {font-size:.62rem;padding:.3rem .5rem;min-height:32px;line-height:1.4}
+.md-typeset .sito-script-step .template-tools [role="status"] {font-size:.62rem}
+.md-typeset .sito-open-script {display:inline-block;font-weight:650}
+@media print{.sito-script-step .template-tools{display:none!important}}
