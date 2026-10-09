@@ -72,8 +72,8 @@ extra:
       keywords: "контент съемка съёмка фото видео лекция smm соцсети"
       featured: false
     - group: ads
-      title: "Оформить личный бренд"
-      description: "Доверие к ведущему и понятный образ"
+      title: "Продвигать через личный бренд"
+      description: "Связаться с Мадувати и начать обучение"
       target: "start/ads/personal-brand/"
       keywords: "ведущий личный бренд доверие"
       featured: false
@@ -295,10 +295,10 @@ nav:
       - Система Сито: start/ads/sito.md
       - Avito — первый шаг: start/ads/avito.md
       - Группы города: start/ads/city-groups.md
+      - Продвижение через личный бренд: start/ads/personal-brand.md
       - Партнёрства: start/ads/partnerships.md
       - Передача контакта: start/ads/handover.md
       - Парсинг для Сита: start/ads/parsing.md
-      - Личный бренд: start/ads/personal-brand.md
       - Монтаж видео: start/ads/editing.md
       - Платные методы: start/ads/paid.md
       - Таргетированная реклама: start/ads/targeting.md

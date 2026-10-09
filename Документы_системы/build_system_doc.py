@@ -505,6 +505,12 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
         add_inline(paragraph, stripped)
         index += 1
 
+    # Keep the short personal-brand instruction with its heading and contact.
+    if path.name == "personal-brand.md":
+        for paragraph in doc.paragraphs[max(0, first_paragraph - 1):]:
+            paragraph.paragraph_format.keep_with_next = True
+        doc.paragraphs[-1].paragraph_format.keep_with_next = False
+
     # Keep the closing status block compact enough that its source link does not
     # become an orphan on a separate page in the generated human edition.
     if path.name == "Правила_общения_с_аудиторией.md":
