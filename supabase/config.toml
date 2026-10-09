@@ -1,0 +1,6 @@
+project_id = "ananda-prachar"
+
+[functions.resolve-avatar]
+# The handler validates the user via Auth.getUser and enforces city permissions.
+# Supports modern signing keys as well as legacy JWT sessions.
+verify_jwt = false

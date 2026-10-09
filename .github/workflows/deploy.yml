@@ -38,6 +38,9 @@ jobs:
       - name: Проверить статусы и сообщения методички
         run: node scripts/sync-care-reference.cjs --check
 
+      - name: Проверить приоритеты и адреса аватаров
+        run: node --test supabase/functions/resolve-avatar/avatar-sources.test.mjs
+
       # Проверка ссылок и оформления. Показывает предупреждения в журнале,
       # но НЕ блокирует публикацию — сайт обновится в любом случае.
       - name: Проверить материалы (не блокирует публикацию)
