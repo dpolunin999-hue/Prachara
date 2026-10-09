@@ -13,12 +13,12 @@ hide:
 
 <div class="care-page-list" markdown="1">
 
-- [**Обязанности ответственного** — что поддерживать и развивать](programs/responsibilities.md)
-- [**Календарь и досуг** — регулярные и дополнительные встречи](programs/routine.md)
-- [**Виды программ и сценарии** — выбрать формат и открыть порядок проведения](programs/formats.md)
-- [**Анонс и афиша** — подготовить за 5–3 дня с готовыми промптами](programs/announcement.md)
-- [**Подготовить и завершить встречу** — минимум, регистрация и учёт участников](programs/first-steps.md)
-- [**Качество программ** — внимание к людям и улучшения](programs/quality.md)
+- [**Обязанности ответственного** <span class="program-link-note">Что поддерживать и развивать</span>](programs/responsibilities.md)
+- [**Календарь программ и досуга** <span class="program-link-note">Регулярные занятия и периодические дополнительные встречи</span>](programs/routine.md)
+- [**Виды программ и сценарии** <span class="program-link-note">Выбрать формат и узнать, как провести встречу</span>](programs/formats.md)
+- [**Анонс и афиша** <span class="program-link-note">Подготовить приглашение за 5–3 дня</span>](programs/announcement.md)
+- [**Подготовить и завершить встречу** <span class="program-link-note">Место, ведущий, регистрация и учёт участников</span>](programs/first-steps.md)
+- [**Качество программ** <span class="program-link-note">Внимание к людям и улучшения</span>](programs/quality.md)
 
 </div>
 

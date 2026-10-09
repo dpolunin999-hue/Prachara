@@ -9,7 +9,7 @@ hide:
 
 [← В программы](../programs.md){ .care-return }
 
-**Выберите группу, затем программу.** Каждый формат открывает отдельный сценарий.
+**Выберите группу, затем программу.** На отдельной странице — идея формата и порядок проведения.
 
 <label class="program-format-search">Найти формат<input type="search" placeholder="Например: асаны, лекция, карма-йога" aria-label="Найти вид программы"></label>
 <p class="program-format-empty" hidden>Формат не найден. Попробуйте другое слово.</p>
@@ -22,6 +22,7 @@ hide:
 - [**Коллективная медитация**](formats/meditation.md)
 - [**Асана-класс**](formats/asana.md)
 - [**Дхарма деха**](formats/dharma-deha.md)
+- [**Йога Нидра** <span class="program-link-note">Рабочее название нового формата</span>](formats/yoga-nidra.md)
 
 </div>
 
