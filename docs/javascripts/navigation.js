@@ -469,7 +469,7 @@
         } else code.append(document.createTextNode(part));
       });
     }
-    addCopy(block, () => copyText, block.closest(".program-prompt") ? "Скопировать промпт" : block.closest(".ads-template") ? "Скопировать заготовку" : block.closest(".ads-message") ? "Скопировать сообщение" : isCarePage ? "Скопировать сообщение" : "Скопировать текст");
+    addCopy(block, () => copyText, block.closest(".avito-title") ? "Скопировать заголовок" : block.closest(".avito-description") ? "Скопировать описание" : block.closest(".program-prompt") ? "Скопировать промпт" : block.closest(".ads-template") ? "Скопировать заготовку" : block.closest(".ads-message") ? "Скопировать сообщение" : isCarePage ? "Скопировать сообщение" : "Скопировать текст");
     const download = block.closest(".program-prompt")?.querySelector("[data-prompt-download]");
     if (download) {
       const parent = download.parentElement;
