@@ -1103,3 +1103,16 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset .program-link-note {display:block;color:#746e68;font-size:.76rem;line-height:1.5;margin-top:.18rem;font-weight:400}
 @media(max-width:640px){.md-typeset .program-link-note{font-size:.72rem}}
 @media(prefers-reduced-motion:reduce){.md-typeset :is(.program-hub,.program-guide) .care-page-list a{transition:none}}
+
+/* Content is an independent, compact guide with one month-plan action. */
+.direction-card--content { --card-accent: #b66536; }
+.md-typeset .content-plan {margin:1rem 0 1.2rem;padding:1rem 1.1rem;border:1px solid #e5cab5;border-radius:.7rem;background:#fff6ec}
+.md-typeset .content-plan h2 {margin:0 0 .45rem;font-size:1.05rem;line-height:1.35}
+.md-typeset .content-plan p {font-size:.8rem;line-height:1.6}
+.md-typeset .content-plan__tools {display:flex;flex-wrap:wrap;align-items:center;gap:.55rem .8rem;margin:.8rem 0}
+.md-typeset .content-prompt-copy {min-height:44px;white-space:normal;font:inherit;font-size:.8rem;line-height:1.4;cursor:pointer}
+.md-typeset .content-prompt-copy:disabled {opacity:.65;cursor:wait}
+.md-typeset .content-plan__status {font-size:.73rem;line-height:1.5;color:#695346;max-width:24rem}
+.md-typeset .content-plan__fallback {margin-bottom:0}
+.md-typeset .content-guide .md-button {margin:.2rem .3rem .2rem 0;min-height:44px;font-size:.74rem;white-space:normal}
+@media(max-width:480px){.md-typeset .content-plan {padding:.85rem}.md-typeset .content-plan__tools {align-items:stretch}.md-typeset .content-prompt-copy {width:100%}.md-typeset .content-plan__status {flex-basis:100%}}

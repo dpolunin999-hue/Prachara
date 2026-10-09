@@ -19,22 +19,29 @@
 <em>Открыть направление →</em>
 </a>
 
-<a class="direction-card direction-card--programs" href="start/programs/">
+<a class="direction-card direction-card--content" href="start/social/">
 <span class="direction-card__number">02</span>
+<strong>Контент</strong>
+<span>Показать жизнь сообщества и укрепить доверие.</span>
+<em>Открыть направление →</em>
+</a>
+
+<a class="direction-card direction-card--programs" href="start/programs/">
+<span class="direction-card__number">03</span>
 <strong>Программы</strong>
 <span>Подготовить встречу и создать сильный первый опыт.</span>
 <em>Открыть направление →</em>
 </a>
 
 <a class="direction-card direction-card--care" href="start/caretaker/">
-<span class="direction-card__number">03</span>
+<span class="direction-card__number">04</span>
 <strong>Забота</strong>
 <span>Сопровождать человека от первого контакта к регулярной практике.</span>
 <em>Открыть направление →</em>
 </a>
 
 <a class="direction-card direction-card--secretary" href="start/secretary/">
-<span class="direction-card__number">04</span>
+<span class="direction-card__number">05</span>
 <strong>Секретарь Прачары</strong>
 <span>Соединять команду, направления, показатели и развитие юнита.</span>
 <em>Открыть направление →</em>
@@ -54,7 +61,9 @@
 
 <div class="secretary-band" markdown>
 
-**Секретарь Прачары** соединяет три направления, помогает команде видеть показатели, выбирать ближайшие действия и улучшать систему.
+**Контент** поддерживает доверие на всём пути: человек видит жизнь сообщества и знакомится с нами между встречами.
+
+**Секретарь Прачары** соединяет направления, помогает команде видеть показатели, выбирать ближайшие действия и улучшать систему.
 
 [Открыть карту секретаря](start/secretary.md){ .md-button }
 

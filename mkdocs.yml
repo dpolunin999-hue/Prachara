@@ -65,11 +65,29 @@ extra:
       target: "start/ads/avito/"
       keywords: "авито объявление реклама привлечь публикация"
       featured: true
-    - group: ads
+    - group: content
       title: "Собрать контент на встрече"
       description: "Фото, видео и передача материалов для соцсетей"
       target: "start/ads/capture/"
       keywords: "контент съемка съёмка фото видео лекция smm соцсети"
+      featured: false
+    - group: content
+      title: "Составить контент-план на месяц"
+      description: "Скопировать промпт и получить простой порядок на четыре недели"
+      target: "start/social/#content-plan"
+      keywords: "контент smm план месяц неделя промпт ии chatgpt публикации посты"
+      featured: true
+    - group: content
+      title: "Подготовить публикацию"
+      description: "Фото, короткое видео, подпись и проверка"
+      target: "start/social/publishing/"
+      keywords: "контент smm выложить опубликовать подпись видео монтаж фото"
+      featured: false
+    - group: content
+      title: "Выбрать идею для поста"
+      description: "Простые материалы о жизни сообщества"
+      target: "start/social/ideas/"
+      keywords: "контент тема идея пост публикация рубрика"
       featured: false
     - group: ads
       title: "Продвигать через личный бренд"
@@ -256,6 +274,7 @@ nav:
   - Главная: index.md
   - Система Прачары:
       - Реклама: start/content.md
+      - Контент: start/social.md
       - Программы: start/programs.md
       - Забота: start/caretaker.md
       - Секретарь Прачары: start/secretary.md
@@ -287,8 +306,6 @@ nav:
       - Реклама — развитие: start/ads/development.md
       - Обязанности рекламы: start/ads/responsibilities.md
       - Методы привлечения: start/ads/methods.md
-      - Контент и SMM: start/ads/content.md
-      - Сбор контента на встрече: start/ads/capture.md
       - Гипотезы: start/ads/hypotheses.md
       - Учёт и цели рекламы: start/ads/metrics.md
       - Понятные страницы юнита: start/ads/landing.md
@@ -299,7 +316,6 @@ nav:
       - Партнёрства: start/ads/partnerships.md
       - Передача контакта: start/ads/handover.md
       - Парсинг для Сита: start/ads/parsing.md
-      - Монтаж видео: start/ads/editing.md
       - Платные методы: start/ads/paid.md
       - Таргетированная реклама: start/ads/targeting.md
       - Контекстная реклама: start/ads/context.md
@@ -307,6 +323,15 @@ nav:
       - Сайт и поиск: start/ads/site.md
       - Система привлечения: 05_Привлечение/Система_привлечения.md
       - Правила общения с аудиторией: 05_Привлечение/Правила_общения_с_аудиторией.md
+  - Контент:
+      - Съёмка на встрече: start/ads/capture.md
+      - Идеи публикаций: start/social/ideas.md
+      - Подготовить и выложить: start/social/publishing.md
+      - Кто отвечает: start/social/team.md
+      - Ритм и результат: start/social/routine.md
+      - Разные соцсети: start/social/platforms.md
+      - Монтаж видео: start/ads/editing.md
+      - Вход из рекламы: start/ads/content.md
   - Первый опыт: 06_Первый_опыт/Система_первого_опыта.md
   - Забота:
       - С чего начать: start/care/first-steps.md

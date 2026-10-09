@@ -372,6 +372,53 @@
     button.title = "Скопировать шаблон";
   });
 
+  // A compact prompt card copies the source file without a long page preview.
+  article.querySelectorAll("[data-copy-prompt]").forEach(button => {
+    const card = button.closest(".content-plan");
+    const status = card?.querySelector('[role="status"]');
+    const fallback = card?.querySelector("[data-prompt-fallback]");
+    let promptText;
+    button.addEventListener("click", async () => {
+      button.disabled = true;
+      button.setAttribute("aria-busy", "true");
+      if (status) status.textContent = "Копируем…";
+      if (fallback) fallback.hidden = true;
+      try {
+        if (!promptText) {
+          const response = await fetch(new URL(button.dataset.copyPrompt, document.baseURI));
+          if (!response.ok) throw new Error("Prompt unavailable");
+          promptText = (await response.text()).trim();
+          if (!promptText) throw new Error("Prompt is empty");
+        }
+        let copied = false;
+        try {
+          await navigator.clipboard.writeText(promptText);
+          copied = true;
+        } catch {
+          const field = document.createElement("textarea");
+          field.value = promptText;
+          field.setAttribute("readonly", "");
+          field.style.cssText = "position:fixed;left:0;top:0;opacity:0";
+          document.body.append(field);
+          try {
+            field.focus(); field.select();
+            copied = document.execCommand("copy");
+          } finally {
+            field.remove(); button.focus();
+          }
+        }
+        if (!copied) throw new Error("Clipboard unavailable");
+        if (status) status.textContent = "Скопировано. Вставьте в ChatGPT или другой ИИ-сервис.";
+      } catch {
+        if (status) status.textContent = "Не удалось скопировать. Откройте текст промпта по ссылке ниже.";
+        if (fallback) fallback.hidden = false;
+      } finally {
+        button.disabled = false;
+        button.removeAttribute("aria-busy");
+      }
+    });
+  });
+
   // Copy the reusable artifact itself, leaving titles and interface labels out.
   function addCopy(container, getText, label) {
     const tools = document.createElement("div");
