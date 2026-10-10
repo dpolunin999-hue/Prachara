@@ -5,15 +5,13 @@
     {% set links = [
       ('', 'Главная', 'index.md'),
       ('start/content/', 'Реклама', 'start/content.md'),
-      ('start/social/', 'Контент', 'start/social.md'),
       ('start/programs/', 'Программы', 'start/programs.md'),
       ('start/caretaker/', 'Забота', 'start/caretaker.md'),
       ('start/secretary/', 'Секретарь', 'start/secretary.md'),
       ('start/materials/', 'База знаний', 'start/materials.md')
     ] %}
-    {% set content_pages = ['start/ads/content.md', 'start/ads/capture.md', 'start/ads/editing.md'] %}
     {% for href, label, source in links %}
-    <a href="{{ href | url }}" {% if page and (page.file.src_uri == source or (source == 'start/caretaker.md' and page.file.src_uri.startswith('start/care/')) or (source == 'start/content.md' and page.file.src_uri.startswith('start/ads/') and page.file.src_uri not in content_pages) or (source == 'start/social.md' and (page.file.src_uri.startswith('start/social/') or page.file.src_uri in content_pages)) or (source == 'start/programs.md' and page.file.src_uri.startswith('start/programs/')) or (source == 'start/secretary.md' and page.file.src_uri.startswith('start/secretary/'))) %}aria-current="page"{% endif %}>{{ label }}</a>
+    <a href="{{ href | url }}" {% if page and (page.file.src_uri == source or (source == 'start/caretaker.md' and page.file.src_uri.startswith('start/care/')) or (source == 'start/content.md' and (page.file.src_uri.startswith('start/ads/') or page.file.src_uri == 'start/social.md' or page.file.src_uri.startswith('start/social/'))) or (source == 'start/programs.md' and page.file.src_uri.startswith('start/programs/')) or (source == 'start/secretary.md' and page.file.src_uri.startswith('start/secretary/'))) %}aria-current="page"{% endif %}>{{ label }}</a>
     {% endfor %}
   </div>
 </nav>
@@ -24,8 +22,11 @@
   <a href="{{ '' | url }}">Главная</a><span aria-hidden="true">/</span>
   {% if page.file.src_uri.startswith('start/care/') %}
   <a href="{{ 'start/caretaker/' | url }}">Забота</a><span aria-hidden="true">/</span>
-  {% elif page.file.src_uri.startswith('start/social/') or page.file.src_uri in ['start/ads/content.md', 'start/ads/capture.md', 'start/ads/editing.md'] %}
+  {% elif page.file.src_uri == 'start/social.md' or page.file.src_uri.startswith('start/social/') or page.file.src_uri in ['start/ads/content.md', 'start/ads/capture.md', 'start/ads/editing.md'] %}
+  <a href="{{ 'start/content/' | url }}">Реклама</a><span aria-hidden="true">/</span>
+  {% if page.file.src_uri != 'start/social.md' %}
   <a href="{{ 'start/social/' | url }}">Контент</a><span aria-hidden="true">/</span>
+  {% endif %}
   {% elif page.file.src_uri.startswith('start/ads/') %}
   <a href="{{ 'start/content/' | url }}">Реклама</a><span aria-hidden="true">/</span>
   {% elif page.file.src_uri.startswith('start/programs/') %}
@@ -36,7 +37,7 @@
   {% elif not page.file.src_uri.startswith('start/') %}
   <a href="{{ 'start/materials/' | url }}">База знаний</a><span aria-hidden="true">/</span>
   {% endif %}
-  <span aria-current="page">{{ page.title }}</span>
+  <span aria-current="page">{{ page.meta.get('title', page.title) }}</span>
 </nav>
 {% endif %}
 {% if page and not page.is_homepage and not page.file.src_uri.startswith('start/') %}

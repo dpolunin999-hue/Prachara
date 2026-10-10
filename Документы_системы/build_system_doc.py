@@ -509,6 +509,10 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
         add_inline(paragraph, stripped)
         index += 1
 
+    # Keep the content overview heading, return link and opening task together.
+    if path.name == "social.md" and len(doc.paragraphs) > first_paragraph:
+        doc.paragraphs[first_paragraph].paragraph_format.keep_with_next = True
+
     # Keep the short personal-brand instruction with its heading and contact.
     if path.name == "personal-brand.md":
         for paragraph in doc.paragraphs[max(0, first_paragraph - 1):]:

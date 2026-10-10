@@ -11,12 +11,12 @@ hide:
 
 <div class="care-page-list" markdown="1">
 
-- [**С чего начать** — подготовить страницы и выбрать первое действие](ads/first-steps.md)
-- [**Методы привлечения** — Сито, Avito, группы, партнёрства и другие способы](ads/methods.md)
-- [**Контент** — самостоятельный раздел: доверие, жизнь встреч и план публикаций](social.md)
-- [**Гипотезы** — пробовать идеи и сохранять результат](ads/hypotheses.md)
-- [**Учёт и цели** — обращения, регистрации и первые приходы](ads/metrics.md)
-- [**Обязанности ответственного** — поддерживать работу и развивать направление](ads/responsibilities.md)
+- [**С чего начать** <span class="section-link-note">Подготовить страницы и выбрать первое действие</span>](ads/first-steps.md)
+- [**Методы привлечения** <span class="section-link-note">Сито, Avito, группы, партнёрства и другие способы</span>](ads/methods.md)
+- [**Контент** <span class="section-link-note">Жизнь сообщества, доверие и план публикаций</span>](social.md)
+- [**Гипотезы** <span class="section-link-note">Пробовать идеи и сохранять результат</span>](ads/hypotheses.md)
+- [**Учёт и цели** <span class="section-link-note">Обращения, регистрации и первые приходы</span>](ads/metrics.md)
+- [**Обязанности ответственного** <span class="section-link-note">Поддерживать работу и развивать направление</span>](ads/responsibilities.md)
 
 </div>
 

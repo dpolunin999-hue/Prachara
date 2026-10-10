@@ -1093,16 +1093,16 @@ html, body { overflow-x: clip; overflow-y: visible; }
 .md-typeset .sito-open-script {display:inline-block;font-weight:650}
 @media print{.sito-script-step .template-tools{display:none!important}}
 
-/* Programme links navigate to pages; disclosure arrows belong to summaries. */
-.md-typeset :is(.program-hub,.program-guide) .care-page-list ul {display:grid;gap:.55rem}
-.md-typeset :is(.program-hub,.program-guide) .care-page-list li {border:0}
-.md-typeset :is(.program-hub,.program-guide) .care-page-list a {padding:.8rem 1rem;border:1px solid #eaded4;border-radius:.65rem;background:#fff;color:#746e68;transition:background .15s,border-color .15s}
-.md-typeset :is(.program-hub,.program-guide) .care-page-list a::after {content:none}
-.md-typeset :is(.program-hub,.program-guide) .care-page-list a:hover {background:#fff5eb;border-color:#dba987}
-.md-typeset :is(.program-hub,.program-guide) .care-page-list a:focus-visible {outline:3px solid #c95b1d;outline-offset:3px}
-.md-typeset .program-link-note {display:block;color:#746e68;font-size:.76rem;line-height:1.5;margin-top:.18rem;font-weight:400}
-@media(max-width:640px){.md-typeset .program-link-note{font-size:.72rem}}
-@media(prefers-reduced-motion:reduce){.md-typeset :is(.program-hub,.program-guide) .care-page-list a{transition:none}}
+/* Programme and advertising links navigate to pages; summaries disclose content. */
+.md-typeset :is(.program-hub,.program-guide,.ads-hub,.ads-guide) .care-page-list ul {display:grid;gap:.55rem}
+.md-typeset :is(.program-hub,.program-guide,.ads-hub,.ads-guide) .care-page-list li {border:0}
+.md-typeset :is(.program-hub,.program-guide,.ads-hub,.ads-guide) .care-page-list a {padding:.8rem 1rem;border:1px solid #eaded4;border-radius:.65rem;background:#fff;color:#746e68;transition:background .15s,border-color .15s}
+.md-typeset :is(.program-hub,.program-guide,.ads-hub,.ads-guide) .care-page-list a::after {content:none}
+.md-typeset :is(.program-hub,.program-guide,.ads-hub,.ads-guide) .care-page-list a:hover {background:#fff5eb;border-color:#dba987}
+.md-typeset :is(.program-hub,.program-guide,.ads-hub,.ads-guide) .care-page-list a:focus-visible {outline:3px solid #c95b1d;outline-offset:3px}
+.md-typeset :is(.program-link-note,.section-link-note) {display:block;color:#746e68;font-size:.76rem;line-height:1.5;margin-top:.18rem;font-weight:400}
+@media(max-width:640px){.md-typeset :is(.program-link-note,.section-link-note){font-size:.72rem}}
+@media(prefers-reduced-motion:reduce){.md-typeset :is(.program-hub,.program-guide,.ads-hub,.ads-guide) .care-page-list a{transition:none}}
 
 /* Content is an independent, compact guide with one month-plan action. */
 .direction-card--content { --card-accent: #b66536; }

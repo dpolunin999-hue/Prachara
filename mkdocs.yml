@@ -274,7 +274,6 @@ nav:
   - Главная: index.md
   - Система Прачары:
       - Реклама: start/content.md
-      - Контент: start/social.md
       - Программы: start/programs.md
       - Забота: start/caretaker.md
       - Секретарь Прачары: start/secretary.md
@@ -323,15 +322,16 @@ nav:
       - Сайт и поиск: start/ads/site.md
       - Система привлечения: 05_Привлечение/Система_привлечения.md
       - Правила общения с аудиторией: 05_Привлечение/Правила_общения_с_аудиторией.md
-  - Контент:
-      - Съёмка на встрече: start/ads/capture.md
-      - Идеи публикаций: start/social/ideas.md
-      - Подготовить и выложить: start/social/publishing.md
-      - Кто отвечает: start/social/team.md
-      - Ритм и результат: start/social/routine.md
-      - Разные соцсети: start/social/platforms.md
-      - Монтаж видео: start/ads/editing.md
-      - Вход из рекламы: start/ads/content.md
+      - Контент:
+          - Контент: start/social.md
+          - Съёмка на встрече: start/ads/capture.md
+          - Идеи публикаций: start/social/ideas.md
+          - Подготовить и выложить: start/social/publishing.md
+          - Кто отвечает: start/social/team.md
+          - Ритм и результат: start/social/routine.md
+          - Разные соцсети: start/social/platforms.md
+          - Монтаж видео: start/ads/editing.md
+          - Вход из рекламы: start/ads/content.md
   - Первый опыт: 06_Первый_опыт/Система_первого_опыта.md
   - Забота:
       - С чего начать: start/care/first-steps.md
