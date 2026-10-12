@@ -53,9 +53,11 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/glass.css
 
 extra_javascript:
   - javascripts/navigation.js
+  - javascripts/work-links.js
 
 extra:
   task_routes:
@@ -383,4 +385,5 @@ nav:
       - Шаблон решения: 13_Разработка_системы/Шаблон_решения.md
       - Оформление материалов: 13_Разработка_системы/Оформление_материалов.md
       - План развития сайта: 13_Разработка_системы/План_развития_сайта.md
+      - Рабочие ссылки города: start/work-links.md
       - Архитектура интерактивной методички: 13_Разработка_системы/Архитектура_интерактивной_методички.md

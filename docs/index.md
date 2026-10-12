@@ -4,9 +4,9 @@
 
 <span class="eyebrow">Практическая система для команды юнита</span>
 
-## Выберите направление или найдите задачу
+## Выберите свой блок
 
-Здесь собраны рабочие маршруты, инструкции и шаблоны. Один человек может вести несколько направлений — выбирайте то, что нужно сейчас.
+Откройте свой блок — там задача, ближайшие действия и готовые инструменты.
 
 </div>
 
@@ -33,16 +33,20 @@
 <em>Открыть направление →</em>
 </a>
 
-<a class="direction-card direction-card--secretary" href="start/secretary/">
-<span class="direction-card__number">04</span>
-<strong>Секретарь Прачары</strong>
-<span>Соединять команду, направления, показатели и развитие юнита.</span>
-<em>Открыть направление →</em>
-</a>
+
 
 </div>
 
-## Как работает система
+<aside class="home-coordinator" markdown="1">
+
+[**Секретарь Прачары** — координация команды и развитие юнита](start/secretary.md)
+
+</aside>
+
+<section class="home-task-search" aria-label="Быстрый поиск действия"></section>
+
+<details class="home-system" markdown="1">
+<summary>Как работает система</summary>
 
 <div class="prachar-flow" aria-label="Реклама приводит человека, программы дают первый опыт, забота помогает продолжить путь">
 <div><b>Реклама</b><span>человек узнаёт</span></div>
@@ -62,7 +66,9 @@
 
 </div>
 
-## Быстро найти действие
+</details>
+
+## Быстрые ссылки
 
 <details class="home-reference" markdown="1">
 <summary>Дополнительные быстрые ссылки и приложение учёта</summary>

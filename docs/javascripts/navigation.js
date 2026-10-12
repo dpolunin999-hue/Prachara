@@ -215,7 +215,9 @@
 
   if (finder) {
     const intro = article.querySelector(".direction-intro, .prachar-hero");
-    if (intro) (article.querySelector(".direction-start") || intro.closest(".direction-context") || intro).after(finder);
+    const homeSearch = article.querySelector(".home-task-search");
+    if (homeSearch) homeSearch.append(finder);
+    else if (intro) (article.querySelector(".direction-start") || intro.closest(".direction-context") || intro).after(finder);
     else article.querySelector("h1")?.after(finder);
     const query = finder.querySelector("input");
     const rows = [...finder.querySelectorAll(".task-results > li")];
@@ -374,7 +376,7 @@
 
   // A compact prompt card copies the source file without a long page preview.
   article.querySelectorAll("[data-copy-prompt]").forEach(button => {
-    const card = button.closest(".content-plan");
+    const card = button.closest(".content-plan, .prompt-tools-card");
     const status = card?.querySelector('[role="status"]');
     const fallback = card?.querySelector("[data-prompt-fallback]");
     let promptText;
@@ -456,6 +458,7 @@
     const code = block.querySelector("pre code");
     if (!code) return;
     block.querySelectorAll(".md-clipboard").forEach(button => {button.hidden = true;});
+    if (block.closest(".program-prompt")?.querySelector("[data-copy-prompt]")) return;
     const copyText = code.textContent;
     if (isCarePage && /https?:\/\//.test(copyText)) {
       // Keep the real URL in the copied message; show a short link in the preview.

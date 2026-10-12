@@ -50,6 +50,9 @@
 {% endif %}
 {% endif %}
 {{ super() }}
+{% if page and page.file.src_uri.startswith('start/') and page.file.src_uri not in ['start/materials.md', 'start/beginner.md', 'start/index.md'] %}
+{% include "partials/work-links.html" %}
+{% endif %}
 {% if page and (page.is_homepage or page.file.src_uri in ['start/secretary.md']) %}
 {% include "partials/task-finder.html" %}
 {% endif %}

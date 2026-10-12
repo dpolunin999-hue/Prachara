@@ -11,8 +11,22 @@ hide:
 
 **Готовьте анонс за 5–3 дня.** Для афиши и одного готового поста используйте единый **AMA Ready Prompt версии 8**.
 
-<details markdown="1" class="program-prompt" id="ama-v8">
-<summary>AMA Ready Prompt — версия 8</summary>
+<section markdown="1" class="program-prompt" id="ama-v8">
+
+## AMA Ready Prompt — версия 8
+
+<div class="prompt-tools-card" markdown="1">
+
+<div class="content-plan__tools">
+<button type="button" class="md-button md-button--primary" data-copy-prompt="../../../assets/announcements/AMA_READY_PROMPT_V8.txt" aria-describedby="ama-copy-status">Скопировать промпт</button>
+<a class="md-button" href="../../../assets/announcements/AMA_READY_PROMPT_V8.txt" download="AMA_READY_PROMPT_V8.txt">Скачать .txt</a>
+<span id="ama-copy-status" role="status" aria-live="polite"></span>
+</div>
+
+<p data-prompt-fallback hidden><a href="../../../assets/announcements/AMA_READY_PROMPT_V8.txt">Открыть промпт для ручного копирования</a></p>
+<noscript><p><a href="../../../assets/announcements/AMA_READY_PROMPT_V8.txt">Открыть текст промпта</a></p></noscript>
+
+</div>
 
 <details markdown="1" class="program-action" id="ama-launch">
 <summary>Как запустить промпт</summary>
@@ -27,7 +41,7 @@ hide:
 
 </details>
 
-[Скачать .txt](../../assets/announcements/AMA_READY_PROMPT_V8.txt){ .program-prompt-download download="AMA_READY_PROMPT_V8.txt" data-prompt-download="true" aria-label="Скачать AMA Ready Prompt V8 как текстовый документ" }
+
 
 <div class="site-only-prompt" markdown="1">
 
@@ -155,7 +169,7 @@ AMA V8 — афиша и готовый пост для копирования
 
 </div>
 
-</details>
+</section>
 
 <details markdown="1" class="program-action">
 <summary>Проверка перед публикацией</summary>
@@ -168,5 +182,11 @@ AMA V8 — афиша и готовый пост для копирования
 [Инструкция общей формы](registration.md).
 
 </details>
+
+<div class="next-action" markdown="1">
+
+**Дальше:** опубликуйте анонс и передайте его рекламщику. Затем [проверьте подготовку ближайшей встречи](first-steps.md#program-preparation).
+
+</div>
 
 </div>

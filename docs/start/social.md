@@ -12,6 +12,15 @@ hide:
 
 **Показывайте жизнь сообщества и укрепляйте доверие к нам.** Простые фото и короткие видео помогают человеку познакомиться с людьми, понять атмосферу встреч и решиться прийти. Для начала достаточно телефона.
 
+## Что сделать сейчас
+
+<div class="care-page-list content-start-actions" markdown="1">
+
+- [**Есть фото или видео** <span class="section-link-note">Выберите материал, добавьте подпись и подготовьте публикацию.</span>](social/publishing.md)
+- [**Скоро встреча** <span class="section-link-note">Посмотрите, что снять и кому передать материалы.</span>](ads/capture.md)
+
+</div>
+
 <section class="content-plan" markdown="1" aria-labelledby="content-plan">
 
 ## Ваш контент-план на месяц {#content-plan}

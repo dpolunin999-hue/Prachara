@@ -11,6 +11,11 @@ hide:
 
 **Avito — сильный инструмент для набора на занятия в больших и небольших городах.** Здесь люди уже ищут йогу, обучение медитации и способы отдохнуть. Начните с одного понятного объявления, чтобы получать прямые обращения и приглашать людей на ближайшую встречу.
 
+1. [Подготовить текст](#avito-template) — взять заготовку или [создать через ИИ](#avito-ai).
+2. [Опубликовать объявление](#avito-publish) — добавить данные, фото и сохранить ссылку.
+3. [Ответить на обращения](#avito-replies) — выбрать короткое сообщение по вопросу человека.
+4. [Передать контакт заботнику](handover.md) — вместе с источником и договорённостью.
+
 [Создать объявление на Avito](https://www.avito.ru/additem){ .md-button .md-button--primary }
 
 <details markdown="1" class="ads-action" id="avito-benefits">
@@ -50,7 +55,11 @@ hide:
 
 Рекомендуемая категория соответствует содержанию занятия. Лучший результат в своём городе определяйте по обращениям и первым приходам.
 
-[Порядок передачи контакта](handover.md)
+<div class="next-action" markdown="1">
+
+**После публикации:** [Отвечать на обращения](#avito-replies).
+
+</div>
 
 </details>
 
@@ -96,6 +105,12 @@ hide:
 
 [Скачать заготовку .txt](../../assets/avito/AVITO_BASE_TEMPLATE_V2.txt){ download="AVITO_BASE_TEMPLATE_V2.txt" }
 
+<div class="next-action" markdown="1">
+
+**Текст готов:** [Опубликовать объявление](#avito-publish).
+
+</div>
+
 </details>
 <details markdown="1" class="ads-action" id="avito-ai">
 <summary>Создать объявление через ИИ или ChatGPT</summary>
@@ -115,6 +130,12 @@ hide:
 <noscript><p><a href="../../../assets/avito/AVITO_PROMPT_V2.txt">Открыть и скопировать промпт</a></p></noscript>
 
 [Скачать промпт .txt](../../assets/avito/AVITO_PROMPT_V2.txt){ download="AVITO_PROMPT_V2.txt" }
+
+</div>
+
+<div class="next-action" markdown="1">
+
+**Текст готов:** [Опубликовать объявление](#avito-publish).
 
 </div>
 
@@ -165,7 +186,13 @@ hide:
 
 </details>
 
-Когда дата и условия согласованы, сохраните договорённость и [передайте контакт заботнику](handover.md).
+Когда дата и условия согласованы, сохраните договорённость.
+
+<div class="next-action" markdown="1">
+
+**Дальше:** [Передать контакт и договорённость заботнику](handover.md).
+
+</div>
 
 </details>
 

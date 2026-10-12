@@ -1,0 +1,23 @@
+<details class="work-links" data-work-links>
+  <summary>Рабочие ссылки моего города<span class="work-city-name"></span></summary>
+  <div class="work-links__body">
+    <div class="work-links__shortcuts" aria-label="Сохранённые инструменты"></div>
+    <p class="work-links__empty">Добавьте календарь, регистрацию, учёт и чат — они будут под рукой.</p>
+    <div class="work-links__controls">
+      <button type="button" class="work-links__edit" aria-expanded="false" aria-controls="work-links-form">Добавить ссылки</button>
+      <button type="button" class="work-links__copy" hidden>Скопировать ссылки для команды</button>
+    </div>
+    <form id="work-links-form" class="work-links__form" hidden novalidate>
+      <label>Город<input name="city" autocomplete="off" maxlength="80" placeholder="Например: Екатеринбург"></label>
+      <label>Календарь программ<input name="calendar" type="url" inputmode="url" autocomplete="off" placeholder="https://…"></label>
+      <label>Форма записи для участников<input name="signup" type="url" inputmode="url" autocomplete="off" placeholder="https://…"></label>
+      <label>Ответы регистрации для команды<input name="registrations" type="url" inputmode="url" autocomplete="off" placeholder="https://…"></label>
+      <label>Учёт обращений<input name="inquiries" type="url" inputmode="url" autocomplete="off" placeholder="https://…"></label>
+      <label>Рабочий чат команды<input name="chat" type="url" inputmode="url" autocomplete="off" placeholder="https://…"></label>
+      <div class="work-links__controls"><button type="submit">Сохранить ссылки</button><button type="button" class="work-links__cancel">Отмена</button></div>
+    </form>
+    <p class="work-links__status" role="status" aria-live="polite"></p>
+    <p class="work-links__note">Сохраняется в этом браузере. Для команды закрепите ссылки в рабочем чате. Доступ к закрытым документам выдаёт их владелец.</p>
+    <noscript><p>Для сохранения ссылок включите JavaScript. Пока закрепите рабочие ссылки в чате команды.</p></noscript>
+  </div>
+</details>

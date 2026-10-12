@@ -11,6 +11,8 @@ hide:
 
 **Одна форма для регистрации на программу, общие ответы для команды юнита.** Организатор и заботник видят один список.
 
+<p><a class="md-button work-tool-link" data-work-key="registrations" href="../../work-links/">Открыть ответы регистрации</a></p>
+
 <details markdown="1" class="program-action">
 <summary>Создать форму</summary>
 

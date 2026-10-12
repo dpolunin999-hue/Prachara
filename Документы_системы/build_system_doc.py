@@ -375,6 +375,13 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
         content = re.sub(r'<div class="content-plan__tools">.*?</div>', "", content, flags=re.S)
         content = re.sub(r'<p class="content-plan__fallback".*?</p>', "", content, flags=re.S)
         content = re.sub(r'<noscript>.*?</noscript>', "[Полный промпт контент-плана](../assets/prompts/CONTENT_PLAN_MONTH.txt)", content, flags=re.S)
+    if path.name == "announcement.md":
+        content = re.sub(r'<div class="prompt-tools-card"[^>]*>.*?</noscript>\s*</div>',
+                         "[Полный промпт AMA Ready Prompt версии 8](../../assets/announcements/AMA_READY_PROMPT_V8.txt)",
+                         content, flags=re.S)
+    if path.name == "announcement.md":
+        content = content.replace("Скопируйте весь промпт ниже и отправьте один раз.",
+                                  "Откройте полный промпт по ссылке выше, скопируйте и отправьте один раз.")
     # Body links in Word open the matching public site page.
     source_url = SITE_ROOT + path.relative_to(DOCS).as_posix()
     def public_link(match):
@@ -442,7 +449,7 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
             index += 1
             continue
 
-        callout = re.match(r"^(?:!!!|\?\?\?)\s+\w+\s+[\"'](.+)[\"']$", stripped)
+        callout = re.match(r"^(?:!!!|\?\?\?\+?)\s+\w+\s+[\"'](.+)[\"']$", stripped)
         if callout:
             paragraph = doc.add_paragraph()
             paragraph.paragraph_format.space_before = Pt(6)
@@ -530,6 +537,10 @@ def add_markdown(doc: Document, path: Path, heading_base: int = 1) -> None:
         for role_paragraph in doc.paragraphs[first_paragraph:]:
             role_paragraph.paragraph_format.space_after = Pt(2)
             role_paragraph.paragraph_format.line_spacing = 1.05
+    if path.name == "platforms.md":
+        for platform_paragraph in doc.paragraphs[first_paragraph:]:
+            platform_paragraph.paragraph_format.space_after = Pt(3)
+            platform_paragraph.paragraph_format.line_spacing = 1.05
     if doc.paragraphs:
         doc.paragraphs[-1].paragraph_format.keep_with_next = True
     paragraph = doc.add_paragraph()

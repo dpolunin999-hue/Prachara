@@ -11,6 +11,8 @@ hide:
 
 **Кроме регулярных программ планируйте периодические дополнительные встречи:** интересные темы, совместный досуг и общение. Например, раз в месяц; частоту выбирайте по интересам людей и возможностям города.
 
+<p><a class="md-button work-tool-link" data-work-key="calendar" href="../../work-links/">Открыть календарь города</a></p>
+
 <details markdown="1" class="program-action" id="program-rhythm">
 <summary>Регулярное расписание</summary>
 

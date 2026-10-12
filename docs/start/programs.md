@@ -15,7 +15,7 @@ hide:
 
 - [**Проверить ближайшую встречу** <span class="section-link-note">Определены ли ведущий, место и время? Готов ли анонс?</span>](programs/first-steps.md)
 - [**Запланировать дополнительную встречу** <span class="section-link-note">Кино, поход на природу, концерт или другой совместный досуг.</span>](programs/routine.md#program-month)
-- [**Подготовить проведение** <span class="section-link-note">Откройте сценарий, уточните число участников у заботника и распределите подготовку.</span>](programs/formats.md)
+- [**Подготовить проведение** <span class="section-link-note">Подготовка, сценарий и учёт участников — по порядку.</span>](programs/first-steps.md#program-preparation)
 
 </div>
 
