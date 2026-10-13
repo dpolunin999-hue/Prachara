@@ -28,3 +28,10 @@ context.click={stopPropagation(){this.stopped=true}};vm.runInContext('openAttend
 assert.deepEqual(opened,[1]);assert.equal(context.click.stopped,true);assert.equal(select('#attendanceDetailsDialog').open,true,'participant list stays under the profile');
 assert.match(app,/Был \$\{new Date\(p.lastVisit\).toLocaleDateString\("ru-RU"\)\}/,'date visible on collapsed person card');
 console.log('People navigation checks passed: dates, sorting, care, metric lists and profile links.');
+assert.deepEqual(Array.from(vm.runInContext('personPhones({contact:"+7 (922) 487-14-17"})',context)),['+79224871417']);
+assert.deepEqual(Array.from(vm.runInContext('personPhones({contact:"@anna123",note:"Телефон: 8 (922) 487-14-17"})',context)),['+79224871417']);
+assert.deepEqual(Array.from(vm.runInContext('personPhones({contact:"https://vk.com/id89224871417",note:"Посетил занятие 12.10.2026"})',context)),[]);
+const card=vm.runInContext('contactVCard({first:"Анна; Иванова",contact:"+79224871417",note:"Личная заметка"})',context);
+assert.match(card,/FN:Анна\\; Иванова/);assert.match(card,/TEL;TYPE=CELL:\+79224871417/);assert.ok(!card.includes('Личная заметка'));assert.ok(card.endsWith('END:VCARD\r\n'));
+assert.match(app,/profile-edit-button.*editPerson\(event,/);assert.match(app,/if\(isEdit&&\$\("#profileDialog"\)\.open\)void showProfile\(result.id\)/);
+console.log('Profile editing and contact export checks passed.');
