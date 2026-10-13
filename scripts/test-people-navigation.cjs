@@ -35,3 +35,14 @@ const card=vm.runInContext('contactVCard({first:"Анна; Иванова",conta
 assert.match(card,/FN:Анна\\; Иванова/);assert.match(card,/TEL;TYPE=CELL:\+79224871417/);assert.ok(!card.includes('Личная заметка'));assert.ok(card.endsWith('END:VCARD\r\n'));
 assert.match(app,/profile-edit-button.*editPerson\(event,/);assert.match(app,/if\(isEdit&&\$\("#profileDialog"\)\.open\)void showProfile\(result.id\)/);
 console.log('Profile editing and contact export checks passed.');
+const copies=[],destinations=[];context.copyText=(value)=>copies.push(value);context.navigator={userAgent:'Android'};context.location={assign:url=>destinations.push(url)};
+context.state.people.push({id:6,first:'Телефон',contact:'+79224871417'});
+vm.runInContext('copyPersonPhone(click,6)',context);assert.deepEqual(copies,['+79224871417']);
+vm.runInContext('savePersonContact(click,6)',context);assert.deepEqual(destinations,['tel:+79224871417']);
+context.navigator.userAgent='iPhone';vm.runInContext('savePersonContact(click,6)',context);assert.equal(destinations.length,1);assert.equal(copies.length,2);
+vm.runInContext(app.split(/\r?\n/).filter(line=>line.startsWith('function messengerTargets(')).join('\n'),context);
+assert.equal(vm.runInContext('Boolean(messengerTargets({contact:"+79224871417"}).max)',context),false);
+context.URL=URL;assert.equal(vm.runInContext('messengerTargets({contact:"https://max.ru/u/explicit-profile"}).max.url',context),'https://max.ru/u/explicit-profile');
+assert.equal(vm.runInContext('Boolean(messengerTargets({contact:"https://max.ru/help/contacts"}).max)',context),false);
+assert.match(vm.runInContext('profileContactMarkup(state.people.find(p=>p.id===6))',context),/copyPersonPhone\(event,6,0\)/);
+console.log('Phone copy, no-download contact action and explicit MAX links checks passed.');
