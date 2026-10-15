@@ -41,7 +41,7 @@ const descriptions={
  inactive:["Человек сообщил, что пока не хочет продолжать, или состояние выбрано вручную", "Остановите активные приглашения", null],
  invite_only:["Состояние выбрано вручную либо карточка отмечена как старый знакомый контакт без точной истории посещений", "Пишите только по подходящему поводу", "invite_only"]
 };
-const message=(key)=>`\n??? example "Сообщение — скопировать"\n\n    \`\`\`text\n    ${data.templates[key]}\n    \`\`\`\n`;
+const message=(key)=>`\n??? example "Сообщение — скопировать"\n\n    \`\`\`text\n    ${data.templates[key].replace(/\n(?=.)/g, "\n    ")}\n    \`\`\`\n`;
 let md=`---\nhide:\n  - toc\n---\n\n# Статусы и сообщения\n\n<div class="care-guide" markdown="1">\n\n[← В инструменты заботы](tools.md){ .care-return }\n\n**Статус помогает выбрать поддержку, а не оценить человека.** Сроки ниже — стандартные настройки; в вашем городе они могут быть изменены. Ручной выбор состояния имеет приоритет.\n\n## Состояние заботы\n\n`;
 for(const [key,[condition,action,template]] of Object.entries(descriptions)) {
  md+=`<details markdown="1" class="care-action" id="state-${key}">\n<summary>${data.labels[key]}</summary>\n\n**Когда:** ${condition}.\n\n**Что сделать:** ${action}.\n`;
