@@ -8,11 +8,12 @@ function definition(prefix) {
   return line;
 }
 const queue = fs.readFileSync(path.join(root, "app/care-queue.js"), "utf8");
+const catalogue = fs.readFileSync(path.join(root, "app/care-actions.js"), "utf8");
 const definitions = ["const careStateLabels=", "const defaultCareTemplates=", "const careCfg=", "function visitPattern(", "function computedCareState(", "function attendanceStatus("].map(definition).join("\n");
 const result = vm.runInNewContext(`
  const DAY=864e5,state={careSettings:{}};
  const days=t=>Math.max(0,Math.floor((Date.now()-new Date(t).getTime())/DAY));
- ${queue}\n ${definitions}
+ ${queue}\n ${definitions}\n ${catalogue}
  const cfg=careCfg(), now=Date.now(), at=n=>new Date(now-n*DAY).toISOString();
  const person=(visits,absence,extra={})=>({visits,lastVisit:at(absence),careEvents:[],...extra});
  const samples=[
@@ -23,7 +24,7 @@ const result = vm.runInNewContext(`
  ["inactive",person(2,0,{careEvents:[{type:"not_now",date:at(0)}]})],
  ["invite_only",person(2,cfg.reactivationDays+1,{careState:"invite_only",careEvents:[{type:"reactivation",date:at(0)}]})]
  ];
- JSON.stringify({cfg,labels:careStateLabels,templates:defaultCareTemplates,
+ JSON.stringify({cfg,labels:careStateLabels,templates:defaultCareTemplates,actions:careActionDefinitions(),
  states:samples.map(([key,p])=>({key,actual:computedCareState(p)})),
  attendance:[attendanceStatus({visits:1,recentVisits:1}),attendanceStatus({visits:2,recentVisits:2}),attendanceStatus({visits:3,recentVisits:3})]});
 `, {}, {timeout:1000});
@@ -51,6 +52,7 @@ for(const [key,[condition,action,template]] of Object.entries(descriptions)) {
 md+=`## Если не приходит ${c.reactivationDays} дней { #reactivation }\n\nПосле повторного сообщения выдерживается пауза ${c.reactivationDays} дней, затем 45 дней между дальнейшими обращениями. Отсчёт идёт от контакта; новое посещение начинает новый период. «Приглашать по подходящему поводу» выбирается вручную и отключает автоматическую очередь.\n\n**Зачем:** оставить человеку удобную возможность вернуться. Напишите один раз и зафиксируйте результат.\n${message("reactivation")}\n`;
 md+=`<details markdown="1" class="care-action" id="diagnostic">\n<summary>Если перерывы повторяются</summary>\n\n**Зачем:** понять интерес и реальное препятствие; уменьшить лишние сообщения.\n${message("diagnostic")}\n</details>\n\n`;
 md+=`## Посещения и домашняя практика\n\n- После первого прихода: **«${data.attendance[0].text}»**.\n- После второго: **«${data.attendance[1].text}»**.\n- От трёх посещений за последние 30 дней: **«${data.attendance[2].text}»**.\n\nПри большом числе посещений и одном–двух недавних приходах приложение может показывать «Иногда приходит». Это отдельная характеристика посещений, а не состояние заботы.\n\nДомашняя практика записывается со слов человека: пока неизвестно → не практикует → иногда → ежедневно → дважды в день → дважды в день и хочет инициацию. Не выводите её из посещаемости.\n\n## Напоминания приложения\n\n- О подтверждённой встрече — в пределах **${c.reminderHours} часов** до начала.\n- Обратная связь после первого посещения — через **${c.feedbackHours} часа**, если её ещё не записали.\n- Для контакта через 1–2 месяца — назначьте свою дату следующей связи.\n\n[Как работать с приложением](application.md) · [Если человек перестал приходить](journey.md#care-step-6)\n\n</div>\n`;
+md=md.replace('</div>\n',`## Полная картина общения { #all-actions }\n\nЭто действующие стандартные правила приложения, не новая согласованная последовательность. Тексты города могут отличаться: в карточке показываются сохранённые настройки города. Действия не обязательно следуют друг за другом; приложение выбирает одну текущую рекомендацию. Личная дата и остановка общения имеют приоритет.\n\nПосле сообщения задача исчезает до следующего срока; новое посещение начинает новый цикл отсутствия. Просмотр всех действий и копирование не фиксируют отправку. Этапы пути пока не изменены и не полностью связаны с журналом общения.\n\n${data.actions.map(a=>`### ${a.title}\n\n**${a.mode}.** ${a.when}\n${message(a.key)}`).join('\n')}\n</div>\n`);
 const target=path.join(root,"docs/start/care/statuses.md");
 if(process.argv.includes("--check")) {
  if(!fs.existsSync(target)||fs.readFileSync(target,"utf8").replace(/\r\n/g,"\n")!==md)throw new Error("Care reference is out of date: run node scripts/sync-care-reference.cjs");
