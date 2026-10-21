@@ -32,7 +32,7 @@ function queuedCareRecommendation(p){
  }
  if(now<plan.dueAt)return careReviewRecommendation(p);
  const type=plan.attempts===0?"first_absence":plan.attempts===1?"second_absence":plan.attempts===2?"reactivation":"long_pause",template=plan.attempts===0?"no_show":type,title=plan.attempts===0?"Не пришёл на занятие":plan.attempts===1?"Повторно связаться":plan.attempts===2?"Пригласить вернуться":"Уточнить интерес к практике";
- return queueRec(p,{type,category:plan.attempts===0?"absence7":plan.attempts===1?"absence14":"reactivation",priority:plan.attempts<2?"medium":"low",title,situation:lastVisit?days(p.lastVisit)+" дней без посещений.":"После предыдущего контакта посещение не отмечено.",goal:"Узнать состояние и предложить возможность вернуться без давления.",action:"Написать лично",template,sourceKey:"care:absence:"+plan.anchor+":"+plan.attempts});
+ return queueRec(p,{type,category:plan.attempts===0?"missed":plan.attempts===1?"absence14":"reactivation",priority:plan.attempts<2?"medium":"low",title,situation:lastVisit?days(p.lastVisit)+" дней без посещений.":"После предыдущего контакта посещение не отмечено.",goal:"Узнать состояние и предложить возможность вернуться без давления.",action:"Написать лично",template,sourceKey:"care:absence:"+plan.anchor+":"+plan.attempts});
 }
 async function saveCareContact(db,id,body,user){
  const person=await one(db.from("people").select("*").eq("id",id).single()),stamp=new Date().toISOString();
