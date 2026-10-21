@@ -7,5 +7,5 @@ const html=vm.runInContext('renderCareActionCatalog(state.people[0])',ctx);asser
 const before=JSON.stringify(ctx.state);vm.runInContext('copyCareActionMessage(7,"feedback")',ctx);assert.ok(ctx.copied.includes('Если будет желание'));assert.equal(JSON.stringify(ctx.state),before,'copy must not record a contact or change journey');
 ctx.state.careSettings={feedbackHours:6,templates:{chat_invite:'Городской чат: https://t.me/example'}};assert.ok(vm.runInContext('renderCareActionCatalog(state.people[0])',ctx).includes('Городской чат: https://t.me/example'));assert.ok(vm.runInContext('careActionDefinitions()[1].when',ctx).includes('6 ч.'));
 assert.ok(app.includes('renderCareActionCatalog(p)'));assert.ok(app.includes('else root.querySelector(".profile-stat-grid")?.insertAdjacentHTML("beforebegin",catalog)'));
-assert.ok(fs.readFileSync('app/index.html','utf8').includes('care-actions.js?v=2'));assert.ok(fs.readFileSync('app/sw.js','utf8').includes('"./care-actions.js"'));
+assert.ok(fs.readFileSync('app/index.html','utf8').includes('care-actions.js?v=3'));assert.ok(fs.readFileSync('app/sw.js','utf8').includes('"./care-actions.js"'));
 console.log('Care action catalogue: all templates, local settings, current action, escaping, safe copy and profile with no due action passed.');
